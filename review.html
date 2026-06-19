@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What's For Tea — Photo Review</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', sans-serif; background: #fdf6f0; color: #333; padding: 20px; }
+h1 { text-align: center; margin-bottom: 5px; color: #030202; }
+.subtitle { text-align: center; color: #666; margin-bottom: 20px; font-size: 14px; }
+.stats { text-align: center; margin-bottom: 20px; font-size: 15px; }
+.stats span { display: inline-block; margin: 0 10px; padding: 4px 12px; border-radius: 20px; font-weight: 600; }
+.stats .ok { background: #d4edda; color: #155724; }
+.stats .wrong { background: #f8d7da; color: #721c24; }
+.stats .unchecked { background: #e8e0d5; color: #555; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; max-width: 1400px; margin: 0 auto; }
+.card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: transform 0.2s; }
+.card.flagged { border: 3px solid #dc3545; }
+.card.approved { border: 3px solid #28a745; }
+.card-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; background: #e8e0d5; }
+.card-img.broken { display: flex; align-items: center; justify-content: center; color: #999; font-size: 13px; }
+.card-body { padding: 12px; }
+.card-body h3 { font-size: 15px; margin-bottom: 4px; line-height: 1.3; }
+.card-body .img-name { font-size: 11px; color: #999; margin-bottom: 8px; word-break: break-all; }
+.card-body .no-photo { font-size: 12px; color: #c0392b; font-style: italic; }
+.btns { display: flex; gap: 6px; }
+.btns button { flex: 1; padding: 8px; border: none; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+.btn-ok { background: #d4edda; color: #155724; }
+.btn-ok:hover { background: #b7dfbf; }
+.btn-wrong { background: #f8d7da; color: #721c24; }
+.btn-wrong:hover { background: #f1b0b7; }
+.btn-ok.active { background: #28a745; color: white; }
+.btn-wrong.active { background: #dc3545; color: white; }
+.copy-section { text-align: center; margin: 30px auto; max-width: 600px; }
+.copy-btn { background: #030202; color: white; border: none; padding: 14px 28px; border-radius: 8px; font-size: 16px; cursor: pointer; font-weight: 600; }
+.copy-btn:hover { background: #333; }
+.copy-result { margin-top: 10px; font-size: 13px; color: #28a745; }
+.filter-bar { text-align: center; margin-bottom: 16px; }
+.filter-bar button { padding: 6px 16px; margin: 0 4px; border: 2px solid #ccc; background: white; border-radius: 20px; cursor: pointer; font-size: 13px; }
+.filter-bar button.active { border-color: #030202; background: #030202; color: white; }
+</style>
+</head>
+<body>
+
+<h1>Recipe Photo Review</h1>
+<p class="subtitle">Check each recipe's photo. Click ✓ if it looks right, ✗ if it's wrong. Then copy the list of wrong ones to paste back to Claude.</p>
+
+<div class="stats" id="stats"></div>
+
+<div class="filter-bar" id="filterBar">
+  <button class="active" onclick="filterCards('all')">All</button>
+  <button onclick="filterCards('unchecked')">Unchecked</button>
+  <button onclick="filterCards('wrong')">Wrong</button>
+  <button onclick="filterCards('ok')">OK</button>
+</div>
+
+<div class="grid" id="grid"></div>
+
+<div class="copy-section">
+  <button class="copy-btn" onclick="copyWrongList()">Copy Wrong List to Clipboard</button>
+  <div class="copy-result" id="copyResult"></div>
+</div>
+
+<script>
+const BASE = "https://whatsfortea.uk/images/recipes/";
+
+const recipes = [
+  {slug:"leftover-sausage-fried-rice", title:"Leftover Sausage Fried Rice", img:"fried-egg-rice-bowl.jpg"},
+  {slug:"easy-bbq-chicken-wraps", title:"Easy BBQ Chicken Wraps", img:"chicken-fajita-wraps.jpg"},
+  {slug:"sticky-pork-and-potato-traybake-simple-cheap-one-pan-family-favourite", title:"Sticky Pork & Potato Traybake", img:"pork-steak-traybake.jpg"},
+  {slug:"creamy-tuna-pasta", title:"Creamy Tuna Pasta", img:"creamy-tuna-pasta.jpg"},
+  {slug:"25-minute-family-air-fryer-chicken-and-chips", title:"25 Minute Air Fryer Chicken & Chips", img:"air-fryer-crispy-chicken.jpg"},
+  {slug:"5-ingredient-creamy-bacon-pasta", title:"5 Ingredient Creamy Bacon Pasta", img:"creamy-bacon-pasta.jpg"},
+  {slug:"air-fryer-crispy-fish-goujons-and-chips", title:"Air Fryer Crispy Fish Goujons & Chips", img:"air-fryer-fish-goujons-chips.jpg"},
+  {slug:"bacon-and-cheese-beef-burgers", title:"Bacon & Cheese Beef Burgers", img:"homemade-bacon-cheese-burgers.jpg"},
+  {slug:"bbq-chicken-flatbreads", title:"BBQ Chicken Flatbreads", img:"pulled-pork-flatbread.jpg"},
+  {slug:"cheeseburger-mac-and-cheese", title:"Cheeseburger Mac & Cheese", img:"cheesy-mac-and-cheese.jpg"},
+  {slug:"cheesy-beef-mince-pasta-bake", title:"Cheesy Beef Mince Pasta Bake", img:"baked-pasta-beef-mince.jpg"},
+  {slug:"cheesy-gnocchi-bake-with-spinach-and-tomato", title:"Cheesy Gnocchi Bake with Spinach & Tomato", img:"gnocchi-tomato-bake.jpg"},
+  {slug:"cheesy-macaroni-with-peas-and-bacon", title:"Cheesy Macaroni with Peas & Bacon", img:"mac-and-cheese.jpg"},
+  {slug:"cheesy-sausage-quesadillas", title:"Cheesy Sausage Quesadillas", img:"cheesy-sausage-quesadillas.jpg"},
+  {slug:"cheesy-smashed-potatoes-with-roasted-carrots-and-chicken-thighs", title:"Cheesy Smashed Potatoes with Carrots & Chicken", img:"chicken-carrot-traybake.jpg"},
+  {slug:"chicken-and-chorizo-pasta-bake", title:"Chicken & Chorizo Pasta Bake", img:"baked-chorizo-pasta.jpg"},
+  {slug:"chicken-burgers-with-crispy-potato-wedges", title:"Chicken Burgers with Crispy Potato Wedges", img:"halloumi-burger-2.jpg"},
+  {slug:"chicken-caesar-wraps", title:"Chicken Caesar Wraps", img:"soft-flour-tortilla-wraps.jpg"},
+  {slug:"chicken-crust-pizza", title:"Chicken Crust Pizza", img:"homemade-chicken-crust-pizza.jpg"},
+  {slug:"chicken-fried-rice", title:"Chicken Fried Rice", img:"chicken-fried-rice.jpg"},
+  {slug:"chicken-tikka-masala-with-rice", title:"Chicken Tikka Masala with Rice", img:"homemade-chicken-curry.jpg"},
+  {slug:"chorizo-and-sausage-pasta-bake", title:"Chorizo & Sausage Pasta Bake", img:"chorizo-fusilli-pasta.jpg"},
+  {slug:"chorizo-and-tomato-pasta", title:"Chorizo & Tomato Pasta", img:"chorizo-tomato-pasta.jpg"},
+  {slug:"creamy-cajun-chicken-pasta", title:"Creamy Cajun Chicken Pasta", img:"creamy-cajun-chicken-pasta.jpg"},
+  {slug:"creamy-chicken-and-mushroom-pasta", title:"Creamy Chicken & Mushroom Pasta", img:"creamy-chicken-mushroom-pasta.jpg"},
+  {slug:"creamy-chicken-curry-with-spinach-and-potatoes", title:"Creamy Chicken Curry with Spinach & Potatoes", img:"slow-cooker-chicken-casserole.jpg"},
+  {slug:"creamy-chicken-with-baked-gnocchi-and-asparagus", title:"Creamy Chicken with Baked Gnocchi & Asparagus", img:"creamy-chicken-gnocchi-bake.jpg"},
+  {slug:"creamy-garlic-and-cheese-pasta", title:"Creamy Garlic & Cheese Pasta", img:"creamy-pasta.jpg"},
+  {slug:"creamy-prawn-and-tomato-pasta", title:"Creamy Prawn & Tomato Pasta", img:"tomato-prawn-pasta.jpg"},
+  {slug:"creamy-sausage-and-spinach-pasta", title:"Creamy Sausage & Spinach Pasta", img:"creamy-sausage-pasta.jpg"},
+  {slug:"creamy-tomato-gnocchi", title:"Creamy Tomato Gnocchi", img:"jammy-tomato-pesto-gnocchi-bake.jpg"},
+  {slug:"crispy-chicken-katsu-with-rice", title:"Crispy Chicken Katsu with Rice", img:"homemade-chicken-stir-fry.jpg"},
+  {slug:"easy-chicken-traybake", title:"Easy Chicken Traybake", img:"chicken-and-veg-traybake.jpg"},
+  {slug:"easy-fakeaway-doner-kebab", title:"Easy Fakeaway Doner Kebab", img:"fakeaway-doner-kebab.jpg"},
+  {slug:"firecracker-chicken-noodles", title:"Firecracker Chicken Noodles", img:"chicken-noodle-stir-fry.jpg"},
+  {slug:"fish-finger-dauphinoise-pie", title:"Fish Finger Dauphinoise Pie", img:"fish-finger-dauphinoise-pie.jpg"},
+  {slug:"fish-finger-tray-bake", title:"Fish Finger Tray Bake", img:"air-fryer-fish-chips-tray.jpg"},
+  {slug:"garlic-butter-salmon-with-new-potatoes", title:"Garlic Butter Salmon with New Potatoes", img:"garlic-butter-salmon.jpg"},
+  {slug:"garlic-sausage-pasta", title:"Garlic Sausage Pasta", img:"homemade-sausage-pasta.jpg"},
+  {slug:"halloumi-burgers", title:"Halloumi Burgers", img:"homemade-halloumi-burger.jpg"},
+  {slug:"homemade-chicken-nuggets", title:"Homemade Chicken Nuggets", img:"homemade-chicken-casserole.jpg"},
+  {slug:"honey-and-soy-chicken-stir-fry", title:"Honey & Soy Chicken Stir Fry", img:"honey-soy-chicken-noodle-stir-fry.jpg"},
+  {slug:"honey-garlic-chicken-thighs-with-mash", title:"Honey Garlic Chicken Thighs with Mash", img:"sticky-honey-garlic-chicken-thighs.jpg"},
+  {slug:"mediterranean-halloumi-pepper-and-potato-bake", title:"Mediterranean Halloumi Pepper & Potato Bake", img:"halloumi-tomato-traybake.jpg"},
+  {slug:"mexican-chicken-and-chorizo-rice-bowl", title:"Mexican Chicken & Chorizo Rice Bowl", img:"chicken-rice-traybake.jpg"},
+  {slug:"moroccan-style-lamb-meatballs", title:"Moroccan Style Lamb Meatballs", img:"moroccan-lamb-meatballs.jpg"},
+  {slug:"naan-bread-pizzas-cheese-and-tomato", title:"Naan Bread Pizzas Cheese & Tomato", img:"homemade-pizza.jpg"},
+  {slug:"one-pot-creamy-beef-pasta", title:"One Pot Creamy Beef Pasta", img:"beef-mushroom-stroganoff.jpg"},
+  {slug:"peanut-butter-and-coconut-chicken-thighs", title:"Peanut Butter & Coconut Chicken Thighs", img:"peanut-butter-chicken.jpg"},
+  {slug:"piri-piri-chicken-tray-bake-with-wedges-and-corn", title:"Piri-Piri Chicken Tray Bake with Wedges & Corn", img:"crispy-chicken-potato-traybake.jpg"},
+  {slug:"pork-and-chorizo-jambalaya", title:"Pork & Chorizo Jambalaya", img:"pork-chorizo-jambalaya.jpg"},
+  {slug:"pork-fajita-traybake", title:"Pork Fajita Traybake", img:"pork-fajita-traybake.jpg"},
+  {slug:"pork-steak-chunk-pasta", title:"Pork Steak Chunk Pasta", img:"pork-pepper-traybake.jpg"},
+  {slug:"pork-steak-fried-rice-with-spring-onions", title:"Pork Steak Fried Rice with Spring Onions", img:"pork-fried-rice.jpg"},
+  {slug:"pork-steak-with-creamy-pepper-sauce", title:"Pork Steak with Creamy Pepper Sauce", img:"pork-steaks-with-veg.jpg"},
+  {slug:"pork-steaks-peppers-onions-and-potatoes-traybake", title:"Pork Steaks Peppers Onions & Potatoes Traybake", img:"pork-steak-potato-traybake.jpg"},
+  {slug:"prawn-fried-rice", title:"Prawn Fried Rice", img:"prawn-fried-rice.jpg"},
+  {slug:"salmon-broccoli-and-potato-bake", title:"Salmon Broccoli & Potato Bake", img:"salmon-broccoli-potato-bake.jpg"},
+  {slug:"salmon-egg-fried-rice", title:"Salmon Egg Fried Rice", img:"salmon-egg-fried-rice.jpg"},
+  {slug:"sausage-and-cheese-pasta-bake", title:"Sausage & Cheese Pasta Bake", img:"sausage-pasta-bake.jpg"},
+  {slug:"sausage-and-pepper-quesadillas", title:"Sausage & Pepper Quesadillas", img:"sausage-quesadilla.jpg"},
+  {slug:"sausage-meatballs-in-crme-frache-with-roasted-potatoes-and-carrots", title:"Sausage Meatballs in Crème Fraîche with Potatoes & Carrots", img:"sausage-meatball-pasta.jpg"},
+  {slug:"sausage-stroganoff-tagliatelle", title:"Sausage Stroganoff Tagliatelle", img:"creamy-sausage-stroganoff-tagliatelle.jpg"},
+  {slug:"simple-chicken-and-pepper-stir-fry", title:"Simple Chicken & Pepper Stir Fry", img:"simple-chicken-pepper-stir-fry.jpg"},
+  {slug:"slow-cooker-beef-curry", title:"Slow Cooker Beef Curry", img:"slow-cooker-beef-curry.jpg"},
+  {slug:"smash-burgers-on-brioche-buns", title:"Smash Burgers on Brioche Buns", img:"smash-burger-2.jpg"},
+  {slug:"smash-burgers-with-chips", title:"Smash Burgers with Chips", img:"smash-burger-brioche.jpg"},
+  {slug:"spicy-sausage-meatball-pasta-with-creamy-tomato-sauce", title:"Spicy Sausage Meatball Pasta with Creamy Tomato Sauce", img:"creamy-meatball-stroganoff.jpg"},
+  {slug:"sticky-pork-steaks-with-noodles", title:"Sticky Pork Steaks with Noodles", img:"sticky-pork-steak.jpg"},
+  {slug:"sticky-pork-with-noodles", title:"Sticky Pork with Noodles", img:"honey-garlic-noodles.jpg"},
+  {slug:"sticky-soy-chicken-thighs-with-noodles", title:"Sticky Soy Chicken Thighs with Noodles", img:"sticky-honey-soy-chicken-traybake.jpg"},
+  {slug:"tomato-and-mozzarella-chicken-thigh-traybake", title:"Tomato & Mozzarella Chicken Thigh Traybake", img:"tomato-mozzarella-chicken-traybake.jpg"},
+  {slug:"tray-bake-lamb-kofta-in-naan-and-salad", title:"Tray Bake Lamb Kofta in Naan & Salad", img:"tray-baked-lamb-kofta.jpg"},
+  {slug:"tuna-and-sweet-potato-fishcakes", title:"Tuna & Sweet Potato Fishcakes", img:"homemade-fish-cakes.jpg"},
+  // No photo recipes
+  {slug:"beef-mince-loaded-flatbreads", title:"Beef Mince Loaded Flatbreads", img:null},
+  {slug:"beef-tacos-with-simple-salsa", title:"Beef Tacos with Simple Salsa", img:null},
+  {slug:"budget-beef-tacos", title:"Budget Beef Tacos", img:null},
+  {slug:"cheesy-bacon-and-garlic-potato-bake", title:"Cheesy Bacon & Garlic Potato Bake (NO PHOTO requested)", img:null},
+  {slug:"chicken-goujon-curry-rice-bowls", title:"Chicken Goujon Curry Rice Bowls", img:null},
+  {slug:"fish-finger-wraps", title:"Fish Finger Wraps", img:null},
+  {slug:"mixed-veg-and-sweet-potato-nuggets", title:"Mixed Veg & Sweet Potato Nuggets", img:null},
+];
+
+const state = {};
+
+function renderCards(filter) {
+  const grid = document.getElementById('grid');
+  grid.innerHTML = '';
+  
+  recipes.forEach((r, i) => {
+    if (!state[r.slug]) state[r.slug] = 'unchecked';
+    
+    if (filter && filter !== 'all' && state[r.slug] !== filter) return;
+    
+    const card = document.createElement('div');
+    card.className = 'card' + (state[r.slug] === 'wrong' ? ' flagged' : '') + (state[r.slug] === 'ok' ? ' approved' : '');
+    card.id = 'card-' + r.slug;
+    
+    let imgHtml;
+    if (r.img) {
+      imgHtml = `<img class="card-img" src="${BASE}${r.img}" alt="${r.title}" onerror="this.style.background='#f8d7da';this.alt='IMAGE NOT FOUND: ${r.img}'">`;
+    } else {
+      imgHtml = `<div class="card-img broken">No photo assigned</div>`;
+    }
+    
+    card.innerHTML = `
+      ${imgHtml}
+      <div class="card-body">
+        <h3>${r.title}</h3>
+        <div class="img-name">${r.img || 'none'}</div>
+        ${r.img ? `
+        <div class="btns">
+          <button class="btn-ok ${state[r.slug]==='ok'?'active':''}" onclick="mark('${r.slug}','ok')">✓ Looks right</button>
+          <button class="btn-wrong ${state[r.slug]==='wrong'?'active':''}" onclick="mark('${r.slug}','wrong')">✗ Wrong photo</button>
+        </div>` : '<div class="no-photo">No suitable image available</div>'}
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+  
+  updateStats();
+}
+
+function mark(slug, status) {
+  state[slug] = status;
+  const card = document.getElementById('card-' + slug);
+  card.className = 'card' + (status === 'wrong' ? ' flagged' : '') + (status === 'ok' ? ' approved' : '');
+  card.querySelectorAll('.btn-ok')[0].className = 'btn-ok' + (status === 'ok' ? ' active' : '');
+  card.querySelectorAll('.btn-wrong')[0].className = 'btn-wrong' + (status === 'wrong' ? ' active' : '');
+  updateStats();
+}
+
+function updateStats() {
+  const ok = Object.values(state).filter(v => v === 'ok').length;
+  const wrong = Object.values(state).filter(v => v === 'wrong').length;
+  const unchecked = recipes.filter(r => r.img).length - ok - wrong;
+  document.getElementById('stats').innerHTML = `
+    <span class="ok">✓ ${ok} OK</span>
+    <span class="wrong">✗ ${wrong} Wrong</span>
+    <span class="unchecked">${unchecked} unchecked</span>
+  `;
+}
+
+function filterCards(f) {
+  document.querySelectorAll('.filter-bar button').forEach(b => b.className = '');
+  event.target.className = 'active';
+  renderCards(f);
+}
+
+function copyWrongList() {
+  const wrongOnes = recipes.filter(r => state[r.slug] === 'wrong').map(r => r.title);
+  if (wrongOnes.length === 0) {
+    document.getElementById('copyResult').textContent = 'No recipes marked as wrong!';
+    return;
+  }
+  const text = "Wrong images:\n" + wrongOnes.join('\n');
+  navigator.clipboard.writeText(text).then(() => {
+    document.getElementById('copyResult').textContent = `Copied ${wrongOnes.length} wrong recipes to clipboard! Paste this back to Claude.`;
+  }).catch(() => {
+    document.getElementById('copyResult').textContent = text;
+  });
+}
+
+renderCards('all');
+</script>
+</body>
+</html>
