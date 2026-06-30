@@ -16,8 +16,8 @@
       --font-heading: 'Plus Jakarta Sans', sans-serif;
       --font-body:    'Work Sans', sans-serif;
     }
-    html { min-width: 900px; }
-    body { background: var(--cream); font-family: var(--font-body); color: var(--black); min-width: 900px; }
+    html { }
+    body { background: var(--cream); font-family: var(--font-body); color: var(--black); }
 
     /* HEADER */
     .site-header { background: var(--cream); border-bottom: 1.5px solid rgba(3,2,2,0.08); position: sticky; top: 0; z-index: 100; }
@@ -86,6 +86,7 @@
     .footer-nav-row a:hover { color: var(--black); }
     .footer-copy { font-size: 13px; color: rgba(3,2,2,0.5); white-space: nowrap; flex-shrink: 0; }
   </style>
+  <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
 
@@ -103,7 +104,10 @@
         </ul>
       </nav>
       <a href="weekly-plan.html" class="btn-cta">Get Weekly Plans &#8594;</a>
-    </div>
+        <button class="mobile-menu-btn" onclick="document.querySelector('.site-header').classList.toggle('mobile-nav-open')" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
   </header>
 
   <!-- HERO -->

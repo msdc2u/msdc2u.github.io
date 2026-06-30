@@ -8,7 +8,7 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root { --pink: #F6979A; --black: #030202; --cream: #FDF5EA; --mustard: #E5C868; --font-heading: 'Plus Jakarta Sans', sans-serif; --font-body: 'Work Sans', sans-serif; }
-    html, body { min-width: 900px; }
+    html, body { }
     body { background: var(--cream); font-family: var(--font-body); color: var(--black); }
     .site-header { background: var(--cream); border-bottom: 1.5px solid rgba(3,2,2,0.08); position: sticky; top: 0; z-index: 100; }
     .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
@@ -71,6 +71,7 @@
     .footer-nav a { font-size: 14px; color: rgba(3,2,2,0.65); text-decoration: none; font-family: var(--font-body); }
     .footer-copy { font-size: 13px; color: rgba(3,2,2,0.5); }
   </style>
+  <link rel="stylesheet" href="../css/responsive.css">
 </head>
 <body>
 
@@ -88,7 +89,10 @@
         </ul>
       </nav>
       <a href="../weekly-plan.html" class="btn-cta">Get Weekly Plans &rarr;</a>
-    </div>
+        <button class="mobile-menu-btn" onclick="document.querySelector('.site-header').classList.toggle('mobile-nav-open')" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
   </header>
 
   <div class="breadcrumb">
