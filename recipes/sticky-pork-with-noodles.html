@@ -44,7 +44,6 @@
     .ingredient-list li:last-child { border-bottom: none; padding-bottom: 0; }
     .ing-amount { font-weight: 700; font-size: 14px; white-space: nowrap; min-width: 48px; }
     .ing-name { color: rgba(3,2,2,0.8); }
-    .method-section { padding-top: 6px; }
     .method-section h2 { font-family: var(--font-heading); font-size: 1.4rem; font-weight: 700; margin-bottom: 28px; }
     .steps { display: flex; flex-direction: column; gap: 20px; }
     .step { display: flex; gap: 20px; align-items: flex-start; }
@@ -80,7 +79,164 @@
   <header class="site-header">
     <div class="header-inner">
       <a href="../index.html" class="site-logo">
-        <img src="data:image/png;base64,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EREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREAREQBERAEREA</div>
+        <img src="../images/logo.jpg" alt="What's For Tea">
+      </a>
+      <nav aria-label="Main navigation">
+        <ul class="site-nav">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../real-recipes.html" class="active">Real Recipes</a></li>
+          <li><a href="../all-recipes.html">All Recipes</a></li>
+          <li><a href="../weekly-plan.html">Weekly Plan</a></li>
+        </ul>
+      </nav>
+      <a href="../weekly-plan.html" class="btn-cta">Get Weekly Plans &rarr;</a>
+        <button class="mobile-menu-btn" onclick="document.querySelector('.site-header').classList.toggle('mobile-nav-open')" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+  </header>
+
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a><span>&rsaquo;</span>
+    <a href="../all-recipes.html">All Recipes</a><span>&rsaquo;</span>
+    Sticky Pork with Noodles
+  </div>
+
+  <div class="recipe-hero">
+    <div class="recipe-image"><img src="../images/recipes/sticky-pork-with-noodles.jpg" alt="Sticky Pork with Noodles" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+    <div class="recipe-intro">
+      <p class="recipe-category">Meat</p>
+      <h1>Sticky Pork with Noodles</h1>
+      <div class="recipe-meta">
+        <div class="meta-badge">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Prep: 0 mins
+        </div>
+        <div class="meta-badge">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 1 7 7H5a7 7 0 0 1 7-7z"/><path d="M5 9a7 7 0 0 0 14 0"/><path d="M8 21h8M12 16v5"/></svg>
+          Cook: 0 mins
+        </div>
+        <div class="meta-badge">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Serves 4
+        </div>
+      </div>
+      <div class="cost-pill">Low cost</div>
+    </div>
+  </div>
+
+  <div class="recipe-body">
+    <div class="ingredients-box">
+      <h2>Ingredients</h2>
+      <div class="serves-row">
+        <span class="serves-label">Serves</span>
+        <span class="serves-count">4 people</span>
+      </div>
+      <ul class="ingredient-list">
+        <li><span class="ing-amount"></span><span class="ing-name">Ingredients</span></li>
+        <li><span class="ing-amount">500 g</span><span class="ing-name">pork mince</span></li>
+        <li><span class="ing-amount">300 g</span><span class="ing-name">dried egg noodles</span></li>
+        <li><span class="ing-amount">1</span><span class="ing-name">medium onion (finely chopped)</span></li>
+        <li><span class="ing-amount">2 tbsp</span><span class="ing-name">soy sauce</span></li>
+        <li><span class="ing-amount">2 tbsp</span><span class="ing-name">sweet chilli sauce</span></li>
+        <li><span class="ing-amount">1 tbsp</span><span class="ing-name">tomato ketchup</span></li>
+        <li><span class="ing-amount">1 tsp</span><span class="ing-name">garlic granules</span></li>
+        <li><span class="ing-amount">1 tsp</span><span class="ing-name">ground ginger</span></li>
+        <li><span class="ing-amount"></span><span class="ing-name">Black pepper (to taste)</span></li>
+        <li><span class="ing-amount"></span><span class="ing-name">Store cupboard (assumed:)</span></li>
+        <li><span class="ing-amount"></span><span class="ing-name">Cooking oil</span></li>
+      </ul>
+    </div>
+
+    <div class="method-section">
+      <h2>Method</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <p class="step-text">Cook the noodles</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <p class="step-text">Bring a large pan of water to the boil. Cook the noodles according to packet instructions. Drain and set aside.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <p class="step-text">Cook the pork and onion</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <p class="step-text">Heat a little oil in a large pan or wok over a medium heat. Add the pork mince and chopped onion and cook for 6–8 minutes, stirring, until the pork is browned and the onion has softened.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">5</div>
+          <p class="step-text">Add flavour</p>
+        </div>
+        <div class="step">
+          <div class="step-number">6</div>
+          <p class="step-text">Stir in the garlic granules, ground ginger and black pepper. Cook for 1 minute.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">7</div>
+          <p class="step-text">Make it sticky</p>
+        </div>
+        <div class="step">
+          <div class="step-number">8</div>
+          <p class="step-text">Add the soy sauce, sweet chilli sauce and ketchup. Stir well and simmer for 3–4 minutes until the sauce thickens and coats the pork.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">9</div>
+          <p class="step-text">Combine</p>
+        </div>
+        <div class="step">
+          <div class="step-number">10</div>
+          <p class="step-text">Add the cooked noodles to the pan and toss until fully coated in the sticky sauce.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">11</div>
+          <p class="step-text">Serve</p>
+        </div>
+        <div class="step">
+          <div class="step-number">12</div>
+          <p class="step-text">Serve hot straight from the pan.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="signup-wrap">
+    <div class="signup-box">
+      <h2>Join our tea table</h2>
+      <p>Get new weekly meal plans and family recipes delivered straight to your inbox.</p>
+      <form class="signup-form" onsubmit="return false;">
+        <input type="email" placeholder="Your email address">
+        <button type="submit">Let's do this!</button>
+      </form>
+      <p class="signup-note">No spam. Cancel anytime. Just good food.</p>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="../images/logo.jpg" alt="What's For Tea">
+      </div>
+      <div class="footer-nav">
+        <div>
+          <a href="../index.html">Home</a>
+          <a href="../real-recipes.html">Real Recipes</a>
+          <a href="../all-recipes.html">All Recipes</a>
+          <a href="../weekly-plan.html">Weekly Plan</a>
+        </div>
+        <div>
+          <a href="../about.html">About</a>
+          <a href="../contact.html">Contact</a>
+          <a href="../privacy.html">Privacy</a>
+          <a href="../terms.html">Terms</a>
+        </div>
+      </div>
+      <p class="footer-copy">&copy; 2026 What's For Tea</p>
+    </div>
   </footer>
 
 </body>
