@@ -4,18 +4,100 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>What's For Tea – Real Family Meals on a Budget</title>
-  <meta http-equiv="refresh" content="0; url=real-recipes.html">
+  <meta name="description" content="Simple, filling family meals on a budget. Real recipes and weekly meal plans for busy parents.">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/responsive.css">
   <style>
-    body { font-family: system-ui, sans-serif; background: #FDF5EA; color: #030202; margin: 0; padding: 48px; text-align: center; }
-    a { color: #F6979A; font-weight: 600; }
-    .logo { width: 72px; height: 72px; border-radius: 50%; }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{--pink:#F6979A;--black:#030202;--cream:#FDF5EA;--mustard:#E5C868;--font-heading:'Plus Jakarta Sans',sans-serif;--font-body:'Work Sans',sans-serif}
+    body{background:var(--cream);font-family:var(--font-body);color:var(--black)}
+    .site-header{background:var(--cream);border-bottom:1.5px solid rgba(3,2,2,.08);position:sticky;top:0;z-index:100}
+    .header-inner{max-width:1200px;margin:0 auto;padding:0 48px;height:76px;display:flex;align-items:center;justify-content:space-between;gap:32px}
+    .site-logo img{width:56px;height:56px;border-radius:50%;object-fit:cover}
+    .site-nav{display:flex;gap:4px;list-style:none;flex:1;justify-content:center}
+    .site-nav a{font-size:15px;font-weight:500;color:var(--black);text-decoration:none;padding:6px 16px;border-radius:999px}
+    .site-nav a.active,.site-nav a:hover{color:var(--pink);font-weight:600}
+    .btn-cta{background:var(--pink);color:var(--black);font-size:15px;font-weight:600;padding:11px 24px;border-radius:999px;text-decoration:none;white-space:nowrap}
+    .hero-wrap{max-width:1200px;margin:32px auto;padding:0 48px}
+    .hero{background:var(--mustard);border-radius:24px;padding:48px 64px;display:grid;grid-template-columns:2fr 3fr;gap:48px;align-items:center}
+    .hero h1{font-family:var(--font-heading);font-size:2.1rem;font-weight:800;line-height:1.15;margin-bottom:14px}
+    .hero p{font-size:14px;line-height:1.6;opacity:.7;margin-bottom:24px}
+    .hero-buttons{display:flex;gap:12px;flex-wrap:wrap}
+    .btn-primary{background:var(--black);color:var(--cream);font-weight:600;padding:13px 28px;border-radius:999px;text-decoration:none}
+    .btn-secondary{border:2px solid rgba(3,2,2,.3);color:var(--black);font-weight:600;padding:11px 26px;border-radius:999px;text-decoration:none}
+    .hero-image{border-radius:16px;overflow:hidden;aspect-ratio:4/3;background:rgba(3,2,2,.1)}
+    .hero-image img{width:100%;height:100%;object-fit:cover;display:block}
+    .section{max-width:1200px;margin:0 auto;padding:48px}
+    .section h2{font-family:var(--font-heading);font-size:1.9rem;font-weight:700;margin-bottom:8px}
+    .recipe-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:28px}
+    .recipe-card{background:#fff;border-radius:16px;overflow:hidden;text-decoration:none;color:var(--black);box-shadow:0 2px 8px rgba(3,2,2,.06);display:block}
+    .card-image{aspect-ratio:4/3;overflow:hidden}
+    .card-image img{width:100%;height:100%;object-fit:cover;display:block}
+    .card-body{padding:20px}
+    .card-body h3{font-family:var(--font-heading);font-size:16px;font-weight:700;margin-bottom:8px}
+    .card-body p{font-size:14px;color:rgba(3,2,2,.55)}
+    .site-footer{background:var(--pink);padding:48px;margin-top:48px}
+    .footer-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px}
+    .footer-logo{display:flex;align-items:center;gap:10px;font-family:var(--font-heading);font-weight:700}
+    .footer-logo img{width:40px;height:40px;border-radius:50%}
+    .footer-links a{margin:0 12px;color:rgba(3,2,2,.65);text-decoration:none;font-size:14px}
+    @media(max-width:768px){.hero{grid-template-columns:1fr;padding:32px}.recipe-grid{grid-template-columns:1fr}.header-inner{padding:0 20px}.section,.hero-wrap{padding:24px 20px}}
   </style>
 </head>
 <body>
-  <p><img class="logo" src="images/logo.jpg" alt="What's For Tea"></p>
-  <h1>What's For Tea</h1>
-  <p>Taking you to the recipes…</p>
-  <p><a href="real-recipes.html">Browse Real Recipes</a> · <a href="all-recipes.html">All Recipes</a> · <a href="weekly-plan.html">Weekly Plan</a></p>
+  <header class="site-header"><div class="header-inner">
+    <a href="index.html" class="site-logo"><img src="images/logo.jpg" alt="What's For Tea"></a>
+    <ul class="site-nav">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="real-recipes.html">Real Recipes</a></li>
+      <li><a href="all-recipes.html">All Recipes</a></li>
+      <li><a href="weekly-plan.html">Weekly Plan</a></li>
+    </ul>
+    <a href="weekly-plan.html" class="btn-cta">Get Weekly Plans &rarr;</a>
+  </div></header>
+
+  <div class="hero-wrap"><div class="hero">
+    <div>
+      <h1>Simple teas the whole <span style="color:var(--pink)">family</span> will actually eat</h1>
+      <p>No stress, no fancy ingredients. Just filling, affordable meals for busy weeknights.</p>
+      <div class="hero-buttons">
+        <a href="real-recipes.html" class="btn-primary">Browse Recipes &rarr;</a>
+        <a href="weekly-plan.html" class="btn-secondary">This Week's Plan</a>
+      </div>
+    </div>
+    <div class="hero-image"><img src="images/hero.jpg" alt="Family meal" loading="eager"></div>
+  </div></div>
+
+  <section class="section">
+    <h2>Family favourites</h2>
+    <p style="color:rgba(3,2,2,.55)">The recipes that actually get made on a weeknight.</p>
+    <div class="recipe-grid">
+      <a href="recipes/air-fryer-crispy-fish-goujons-and-chips.html" class="recipe-card">
+        <div class="card-image"><img src="images/recipes/air-fryer-crispy-fish-goujons-and-chips.jpg" alt="Fish Goujons" loading="lazy"></div>
+        <div class="card-body"><h3>Air Fryer Crispy Fish Goujons & Chips</h3><p>Crispy, golden and ready in under 20 minutes.</p></div>
+      </a>
+      <a href="recipes/5-ingredient-creamy-bacon-pasta.html" class="recipe-card">
+        <div class="card-image"><img src="images/recipes/5-ingredient-creamy-bacon-pasta.jpg" alt="Bacon Pasta" loading="lazy"></div>
+        <div class="card-body"><h3>5-Ingredient Creamy Bacon Pasta</h3><p>Ready in under 20 minutes and always gets eaten.</p></div>
+      </a>
+      <a href="recipes/easy-bbq-chicken-wraps.html" class="recipe-card">
+        <div class="card-image"><img src="images/recipes/easy-bbq-chicken-wraps.jpg" alt="BBQ Wraps" loading="lazy"></div>
+        <div class="card-body"><h3>Easy BBQ Chicken Wraps</h3><p>Feels like a proper treat without costing a fortune.</p></div>
+      </a>
+    </div>
+  </section>
+
+  <footer class="site-footer"><div class="footer-inner">
+    <div class="footer-logo"><img src="images/logo.jpg" alt=""><span>What's For Tea</span></div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="real-recipes.html">Real Recipes</a>
+      <a href="all-recipes.html">All Recipes</a>
+      <a href="weekly-plan.html">Weekly Plan</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <p style="font-size:13px;color:rgba(3,2,2,.5)">&copy; 2026 What's For Tea</p>
+  </div></footer>
 </body>
 </html>
