@@ -378,6 +378,10 @@
       font-size: 36px;
       margin-bottom: 16px;
       font-weight: 700;
+      color: #030202;
+      line-height: 1;
+      /* Force black even on colour emojis */
+      filter: grayscale(100%) brightness(0);
     }
     .why-item h3 {
       font-family: var(--font-heading);
@@ -700,7 +704,7 @@
           <p>One-pan meals and simple steps. Made for when you're tired at 5pm.</p>
         </div>
         <div class="why-item">
-          <div class="why-icon">😊</div>
+          <div class="why-icon">☺</div>
           <h3>Kids will eat it</h3>
           <p>Nothing weird. Nothing niche. Real food that families actually finish.</p>
         </div>
