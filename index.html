@@ -348,8 +348,11 @@
       justify-content: center;
       font-size: 28px;
       transition: transform 0.2s;
-      /* Force icons solid black */
+    }
+    /* Black icons only — do not filter the pink circle background */
+    .cat-circle .cat-icon {
       filter: grayscale(100%) brightness(0);
+      line-height: 1;
     }
     .cat-item:hover .cat-circle { transform: scale(1.06); }
     .cat-item p { font-size: 15px; font-weight: 600; }
@@ -672,19 +675,19 @@
     <h2>Browse Categories</h2>
     <div class="cat-grid">
       <a href="real-recipes.html" class="cat-item">
-        <div class="cat-circle">📺</div>
+        <div class="cat-circle"><span class="cat-icon">📺</span></div>
         <p>Quick Family Dinners</p>
       </a>
       <a href="real-recipes.html#fakeaways" class="cat-item">
-        <div class="cat-circle">🥡</div>
+        <div class="cat-circle"><span class="cat-icon">🥡</span></div>
         <p>Fakeaways</p>
       </a>
       <a href="real-recipes.html#pasta" class="cat-item">
-        <div class="cat-circle">🍝</div>
+        <div class="cat-circle"><span class="cat-icon">🍝</span></div>
         <p>Pasta Nights</p>
       </a>
       <a href="real-recipes.html#traybakes" class="cat-item">
-        <div class="cat-circle">🥘</div>
+        <div class="cat-circle"><span class="cat-icon">🥘</span></div>
         <p>One Pan Favourites</p>
       </a>
     </div>
