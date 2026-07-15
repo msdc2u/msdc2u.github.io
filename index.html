@@ -217,6 +217,19 @@
       font-weight: 600;
       line-height: 1.3;
     }
+    a.day-pill {
+      text-decoration: none;
+      color: var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 80px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    a.day-pill:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(3,2,2,0.12);
+    }
 
     /* FAMILY FAVOURITES */
     .section { max-width: 1200px; margin: 0 auto; padding: 0 48px 56px; }
@@ -579,34 +592,27 @@
         <a href="weekly-plan.html">See full plan &rarr;</a>
       </div>
       <div class="days-grid">
-        <div class="day-pill">
-          <div class="day-label">MON</div>
-          <div class="day-meal">Creamy Tuna Pasta</div>
-        </div>
-        <div class="day-pill">
-          <div class="day-label">TUE</div>
-          <div class="day-meal">5-Ingredient Bacon Pasta</div>
-        </div>
-        <div class="day-pill">
-          <div class="day-label">WED</div>
-          <div class="day-meal">Air Fryer Chicken & Chips</div>
-        </div>
-        <div class="day-pill">
-          <div class="day-label">THU</div>
-          <div class="day-meal">Cheesy Macaroni with Bacon</div>
-        </div>
-        <div class="day-pill">
-          <div class="day-label">FRI</div>
-          <div class="day-meal">BBQ Chicken Wraps</div>
-        </div>
-        <div class="day-pill">
-          <div class="day-label">SAT</div>
-          <div class="day-meal">Easy BBQ Chicken Wraps</div>
-        </div>
-        <div class="day-pill mustard">
-          <div class="day-label">SUN</div>
-          <div class="day-meal">Picnic Tea & Easy Bits</div>
-        </div>
+        <a class="day-pill" href="recipes/creamy-cajun-chicken-pasta.html">
+          <div class="day-meal">Creamy Chicken Thigh Pasta Bake</div>
+        </a>
+        <a class="day-pill" href="recipes/sausage-meatballs-in-crme-frache-with-roasted-potatoes-and-carrots.html">
+          <div class="day-meal">Sausage Traybake with Baby Roast Potatoes</div>
+        </a>
+        <a class="day-pill" href="recipes/fish-finger-wraps.html">
+          <div class="day-meal">Fish Finger Wraps with Homemade Chips</div>
+        </a>
+        <a class="day-pill" href="recipes/tray-bake-lamb-kofta-in-naan-and-salad.html">
+          <div class="day-meal">Spiced Beef Loaded Flatbreads</div>
+        </a>
+        <a class="day-pill" href="recipes/chicken-burgers-with-crispy-potato-wedges.html">
+          <div class="day-meal">Homemade Chicken Thigh Burgers</div>
+        </a>
+        <a class="day-pill" href="recipes/sticky-pork-with-noodles.html">
+          <div class="day-meal">Sticky Pork Noodles</div>
+        </a>
+        <a class="day-pill" href="recipes/prawn-fried-rice.html">
+          <div class="day-meal">Prawn Fried Rice</div>
+        </a>
       </div>
     </div>
   </section>
