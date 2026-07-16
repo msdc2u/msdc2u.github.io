@@ -1,0 +1,27 @@
+name: fix-sausage-path
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Restore all-recipes and fix sausage image path
+        run: |
+          set -euo pipefail
+          git show 7a051b27480369af9d1a68460d30e39eee158241:all-recipes.html \
+            | sed 's|images/recipes/sausage-traybake.jpg|images/sausage-traybake.jpg|' \
+            > all-recipes.html
+          # Ensure only the Sausage Tray Bake card path changed
+          grep -q 'src="images/sausage-traybake.jpg"' all-recipes.html
+          ! grep -q 'images/recipes/sausage-traybake.jpg' all-recipes.html
+          grep -q 'images/logo.jpg' all-recipes.html
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add all-recipes.html
+          git commit -m "Point All Recipes Sausage Tray Bake card at uploaded image"
+          git push
