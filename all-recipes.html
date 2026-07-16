@@ -121,8 +121,19 @@
   </div>
 
   <div class="recipes-wrap">
-    <p class="results-count" id="resultsCount">Showing all 73 recipes</p>
+    <p class="results-count" id="resultsCount">Showing all 74 recipes</p>
     <div class="recipe-grid" id="recipeGrid">
+        <a href="recipes/homemade-chicken-thigh-burgers.html" class="recipe-card" data-cat="Fakeaways">
+          <div class="card-image"><img src="imagesrecipeshomemade-chicken-thigh-burgers.jpg" alt="" loading="lazy"></div>
+          <div class="card-body">
+            <span class="cat-tag">Fakeaways</span>
+            <h3>Homemade Chicken Thigh Burgers</h3>
+            <div class="card-meta">
+              <span class="cost-badge cost-mid"><span class="cost-dot"></span>Mid</span>
+              <span class="serves">Serves 4</span>
+            </div>
+          </div>
+        </a>
         <a href="recipes/sweet-chilli-beef-mince-flatbreads.html" class="recipe-card" data-cat="Fakeaways">
           <div class="card-image"><img src="imagesrecipessweet-chilli-beef-mince-flatbreads.jpg" alt="" loading="lazy"></div>
           <div class="card-body">
@@ -870,7 +881,7 @@
           card.classList.add('hidden');
         }
       });
-      document.getElementById('resultsCount').textContent = visible === 100 ? 'Showing all 73 recipes' : `Showing ${visible} recipe${visible === 1 ? '' : 's'}`;
+      document.getElementById('resultsCount').textContent = visible === 100 ? 'Showing all 74 recipes' : `Showing ${visible} recipe${visible === 1 ? '' : 's'}`;
     }
   </script>
 
