@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Homemade Chicken Thigh Burgers – What's For Tea</title>
+  <meta name="description" content="Homemade Chicken Thigh Burgers – a proper family tea that's simple, filling and on the table fast.">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --pink: #F6979A; --black: #030202; --cream: #FDF5EA; --mustard: #E5C868; --font-heading: 'Plus Jakarta Sans', sans-serif; --font-body: 'Work Sans', sans-serif; }
+    html, body { }
+    body { background: var(--cream); font-family: var(--font-body); color: var(--black); }
+    .site-header { background: var(--cream); border-bottom: 1.5px solid rgba(3,2,2,0.08); position: sticky; top: 0; z-index: 100; }
+    .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .site-logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
+    .site-logo img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; }
+    .site-nav { display: flex; align-items: center; gap: 4px; list-style: none; flex: 1; justify-content: center; }
+    .site-nav a { font-family: var(--font-body); font-size: 15px; font-weight: 500; color: var(--black); text-decoration: none; padding: 6px 16px; border-radius: 999px; transition: background 0.18s; white-space: nowrap; }
+    .site-nav a:hover { background: rgba(246,151,154,0.15); }
+    .site-nav a.active { color: var(--pink); font-weight: 600; }
+    .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--pink); color: var(--black); font-family: var(--font-body); font-size: 15px; font-weight: 600; padding: 11px 24px; border-radius: 999px; text-decoration: none; white-space: nowrap; flex-shrink: 0; }
+    .breadcrumb { max-width: 1200px; margin: 0 auto; padding: 20px 48px 0; font-size: 13px; color: rgba(3,2,2,0.45); }
+    .breadcrumb a { color: rgba(3,2,2,0.45); text-decoration: none; }
+    .breadcrumb a:hover { color: var(--pink); }
+    .breadcrumb span { margin: 0 6px; }
+    .recipe-hero { max-width: 1200px; margin: 24px auto 0; padding: 0 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .recipe-image { border-radius: 20px; overflow: hidden; aspect-ratio: 4/3; background: #e8e0d5; display: flex; align-items: center; justify-content: center; font-size: 13px; color: rgba(3,2,2,0.3); }
+    .recipe-intro { padding-top: 8px; }
+    .recipe-category { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--pink); margin-bottom: 12px; }
+    .recipe-intro h1 { font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; line-height: 1.15; margin-bottom: 16px; }
+    .recipe-intro p { font-size: 15px; line-height: 1.7; color: rgba(3,2,2,0.65); margin-bottom: 24px; }
+    .recipe-meta { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; }
+    .meta-badge { display: flex; align-items: center; gap: 7px; background: white; border-radius: 999px; padding: 8px 16px; font-size: 13px; font-weight: 600; box-shadow: 0 1px 4px rgba(3,2,2,0.07); }
+    .cost-pill { display: inline-flex; align-items: center; gap: 7px; background: var(--mustard); border-radius: 999px; padding: 10px 20px; font-size: 14px; font-weight: 700; margin-bottom: 28px; }
+    .recipe-body { max-width: 1200px; margin: 48px auto; padding: 0 48px; display: grid; grid-template-columns: 320px 1fr; gap: 48px; align-items: start; }
+    .ingredients-box { background: white; border-radius: 20px; padding: 32px; box-shadow: 0 2px 12px rgba(3,2,2,0.06); position: sticky; top: 96px; }
+    .ingredients-box h2 { font-family: var(--font-heading); font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
+    .serves-row { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid rgba(3,2,2,0.07); }
+    .serves-label { font-size: 13px; color: rgba(3,2,2,0.5); }
+    .serves-count { font-size: 15px; font-weight: 700; }
+    .ingredient-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .ingredient-list li { display: flex; align-items: baseline; gap: 8px; font-size: 15px; line-height: 1.45; padding-bottom: 12px; border-bottom: 1px solid rgba(3,2,2,0.05); }
+    .ingredient-list li:last-child { border-bottom: none; padding-bottom: 0; }
+    .ing-amount { font-weight: 700; font-size: 14px; white-space: nowrap; min-width: 48px; }
+    .ing-name { color: rgba(3,2,2,0.8); }
+    .method-section h2 { font-family: var(--font-heading); font-size: 1.4rem; font-weight: 700; margin-bottom: 28px; }
+    .steps { display: flex; flex-direction: column; gap: 20px; }
+    .step { display: flex; gap: 20px; align-items: flex-start; }
+    .step-number { width: 36px; height: 36px; border-radius: 50%; background: var(--pink); display: flex; align-items: center; justify-content: center; font-family: var(--font-heading); font-size: 14px; font-weight: 800; flex-shrink: 0; color: white; }
+    .step-text { font-size: 15px; line-height: 1.7; color: rgba(3,2,2,0.8); padding-top: 6px; }
+    .notes-box { background: var(--mustard); border-radius: 16px; padding: 24px 28px; margin-top: 32px; }
+    .notes-box h3 { font-family: var(--font-heading); font-size: 15px; font-weight: 700; margin-bottom: 12px; }
+    .notes-box ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .notes-box li { font-size: 14px; line-height: 1.55; padding-left: 20px; position: relative; color: rgba(3,2,2,0.8); }
+    .notes-box li::before { content: "✓"; position: absolute; left: 0; font-weight: 700; }
+    .signup-wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px 64px; }
+    .signup-box { background: var(--mustard); border-radius: 24px; padding: 64px 48px; text-align: center; }
+    .signup-box h2 { font-family: var(--font-heading); font-size: 2rem; font-weight: 800; margin-bottom: 12px; }
+    .signup-box p { font-size: 15px; color: rgba(3,2,2,0.7); margin-bottom: 28px; max-width: 400px; margin-left: auto; margin-right: auto; }
+    .signup-form { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 14px; }
+    .signup-form input { padding: 13px 22px; border-radius: 999px; border: none; font-family: var(--font-body); font-size: 15px; width: 260px; outline: none; }
+    .signup-form button { padding: 13px 26px; border-radius: 999px; background: var(--black); color: var(--cream); font-family: var(--font-body); font-size: 15px; font-weight: 600; border: none; cursor: pointer; }
+    .signup-note { font-size: 13px; color: rgba(3,2,2,0.45); }
+    .site-footer { background: var(--pink); padding: 48px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+    .footer-logo { display: flex; align-items: center; gap: 10px; }
+    .footer-logo img { width: 40px; height: 40px; border-radius: 50%; }
+    .footer-logo span { font-family: var(--font-heading); font-size: 15px; font-weight: 700; color: var(--black); }
+    .footer-nav { display: flex; flex-direction: column; gap: 10px; text-align: center; }
+    .footer-nav div { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+    .footer-nav a { font-size: 14px; color: rgba(3,2,2,0.65); text-decoration: none; font-family: var(--font-body); }
+    .footer-copy { font-size: 13px; color: rgba(3,2,2,0.5); }
+  </style>
+  <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="../index.html" class="site-logo">
+        <img src="../images/logo.jpg" alt="What's For Tea">
+      </a>
+      <nav aria-label="Main navigation">
+        <ul class="site-nav">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../real-recipes.html" class="active">Real Recipes</a></li>
+          <li><a href="../all-recipes.html">All Recipes</a></li>
+          <li><a href="../weekly-plan.html">Weekly Plan</a></li>
+        </ul>
+      </nav>
+      <a href="../weekly-plan.html" class="btn-cta">Get Weekly Plans &rarr;</a>
+        <button class="mobile-menu-btn" onclick="document.querySelector('.site-header').classList.toggle('mobile-nav-open')" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+  </header>
+
+  <div class="breadcrumb">
+    <a href="../index.html">Home</a><span>&rsaquo;</span>
+    <a href="../all-recipes.html">All Recipes</a><span>&rsaquo;</span>
+    Homemade Chicken Thigh Burgers
+  </div>
+
+  <div class="recipe-hero">
+    <div class="recipe-image"><img src="../imagesrecipeshomemade-chicken-thigh-burgers.jpg" alt="Homemade Chicken Thigh Burgers" style="width:100%;height:100%;object-fit:cover;display:block;"></div>
+    <div class="recipe-intro">
+      <p class="recipe-category">Fakeaways</p>
+      <h1>Homemade Chicken Thigh Burgers</h1>
+      <p class="recipe-intro-text">These homemade chicken thigh burgers are exactly the kind of simple, proper tea that works on a busy weeknight. Chicken thighs stay juicy and forgiving (and they're cheaper than breast), get a quick seasoning from the store cupboard, then go straight into a hot pan until golden and slightly charred. Pile them into soft buns with mayo, cheese, lettuce and tomato and you've got a proper family burger without any faff.</p>
+      <div class="recipe-meta">
+        <div class="meta-badge">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Prep: 10 mins
+        </div>
+        <div class="meta-badge">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a7 7 0 0 1 7 7H5a7 7 0 0 1 7-7z"/><path d="M5 9a7 7 0 0 0 14 0"/><path d="M8 21h8M12 16v5"/></svg>
+          Cook: 15–20 mins
+        </div>
+        <div class="meta-badge">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Serves 4
+        </div>
+      </div>
+      <div class="cost-pill">Mid cost</div>
+    </div>
+  </div>
+
+  <div class="recipe-body">
+    <div class="ingredients-box">
+      <h2>Ingredients</h2>
+      <div class="serves-row">
+        <span class="serves-label">Serves</span>
+        <span class="serves-count">4 people</span>
+      </div>
+      <ul class="ingredient-list">
+        <li><span class="ing-amount">4</span><span class="ing-name">boneless, skinless chicken thighs</span></li>
+        <li><span class="ing-amount">4</span><span class="ing-name">soft brioche or sesame buns</span></li>
+        <li><span class="ing-amount">1</span><span class="ing-name">tomato, sliced</span></li>
+        <li><span class="ing-amount">100 g</span><span class="ing-name">Cheddar cheese, grated or sliced</span></li>
+        <li><span class="ing-amount">handful</span><span class="ing-name">lettuce</span></li>
+        <li><span class="ing-amount">1 tsp</span><span class="ing-name">garlic powder</span></li>
+        <li><span class="ing-amount">1 tsp</span><span class="ing-name">smoked paprika</span></li>
+        <li><span class="ing-amount">½ tsp</span><span class="ing-name">salt</span></li>
+        <li><span class="ing-amount">to taste</span><span class="ing-name">black pepper</span></li>
+        <li><span class="ing-amount">1 tbsp</span><span class="ing-name">cooking oil</span></li>
+        <li><span class="ing-amount">to taste</span><span class="ing-name">mayonnaise</span></li>
+      </ul>
+    </div>
+
+    <div class="method-section">
+      <h2>Method</h2>
+      <div class="steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <p class="step-text">Place the chicken thighs in a bowl. Drizzle with the oil, then sprinkle over the garlic powder, smoked paprika, salt and a good grind of black pepper. Massage everything in so the chicken is evenly coated.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <p class="step-text">Heat a griddle pan or large frying pan over a medium-high heat. Cook the chicken for 6–8 minutes on each side until cooked through, golden brown and slightly charred. In the last minute, top each thigh with some of the cheddar so it melts.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <p class="step-text">While the chicken rests for a minute, lightly toast the cut sides of the buns in the same pan.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <p class="step-text">Spread mayonnaise on the bottom of each bun. Top with lettuce, the cheesy chicken thigh, a couple of tomato slices, then the top bun. Serve straight away.</p>
+        </div>
+      </div>
+      <div class="notes-box">
+        <h3>Recipe Notes</h3>
+        <ul>
+          <li><strong>Chicken thighs:</strong> These stay juicy and are much more forgiving than chicken breast – perfect for weeknights.</li>
+          <li><strong>Cheese:</strong> 100g is plenty for four burgers – use grated or sliced, whichever you've got.</li>
+          <li><strong>Leftovers:</strong> Any cooked chicken keeps in the fridge for 2 days and is great cold in wraps or salads the next day.</li>
+          <li><strong>Freezing:</strong> Cooked chicken freezes well for up to 3 months. Defrost overnight in the fridge and reheat until piping hot.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="signup-wrap">
+    <div class="signup-box">
+      <h2>Join our tea table</h2>
+      <p>Get new weekly meal plans and family recipes delivered straight to your inbox.</p>
+      <form class="signup-form" onsubmit="return false;">
+        <input type="email" placeholder="Your email address">
+        <button type="submit">Let's do this!</button>
+      </form>
+      <p class="signup-note">No spam. Cancel anytime. Just good food.</p>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="../images/logo.jpg" alt="What's For Tea">
+      </div>
+      <div class="footer-nav">
+        <div>
+          <a href="../index.html">Home</a>
+          <a href="../real-recipes.html">Real Recipes</a>
+          <a href="../all-recipes.html">All Recipes</a>
+          <a href="../weekly-plan.html">Weekly Plan</a>
+        </div>
+        <div>
+          <a href="../about.html">About</a>
+          <a href="../contact.html">Contact</a>
+          <a href="../privacy.html">Privacy</a>
+          <a href="../terms.html">Terms</a>
+        </div>
+      </div>
+      <p class="footer-copy">&copy; 2026 What's For Tea</p>
+    </div>
+  </footer>
+
+</body>
+</html>
