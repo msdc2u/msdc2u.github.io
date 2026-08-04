@@ -35,7 +35,7 @@
     .hero-content h1 { font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; }
     .hero-content p { font-size: 16px; color: rgba(3,2,2,0.7); max-width: 520px; margin: 0 auto; }
 
-    .recipes-container { max-width: 1100px; margin: 0 auto; padding: 0 48px 80px; }
+    .recipes-container { max-width: 1100px; margin: 0 auto; padding: 0 48px 40px; }
     .recipes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
 
     .meal-card { background: white; border-radius: 20px; overflow: hidden; text-decoration: none; color: var(--black); box-shadow: 0 2px 12px rgba(3,2,2,0.06); transition: transform 0.2s, box-shadow 0.2s; display: block; }
@@ -50,11 +50,10 @@
     .view-recipe { font-size: 15px; font-weight: 600; color: var(--pink); text-decoration: none; }
     .view-recipe:hover { text-decoration: underline; }
 
-    .shop-card { background: #F6979A; border-radius: 20px; padding: 32px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; text-decoration: none; color: #030202; box-shadow: 0 2px 12px rgba(3,2,2,0.06); transition: transform 0.2s; }
+    .shop-card { background: #F6979A; border-radius: 20px; padding: 32px; text-align: center; text-decoration: none; color: #030202; box-shadow: 0 2px 12px rgba(3,2,2,0.06); transition: transform 0.2s; }
     .shop-card:hover { transform: translateY(-4px); }
-    .shop-icon { width: 48px; height: 48px; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; font-size: 24px; }
     .shop-card h3 { font-family: var(--font-heading); font-size: 1.4rem; font-weight: 800; margin-bottom: 8px; }
-    .shop-card p { font-size: 15px; color: rgba(3,2,2,0.75); margin: 0; }
+    .shop-card p { font-size: 15px; color: rgba(3,2,2,0.75); margin: 0 0 16px 0; }
 
     .footer { max-width: 1200px; margin: 60px auto 40px; padding: 0 48px; text-align: center; }
     .back-link-bottom { display: inline-flex; align-items: center; gap: 8px; color: var(--pink); text-decoration: none; font-weight: 600; }
@@ -93,11 +92,10 @@
     </div>
   </div>
 
-  <!-- Recipes + Shopping List -->
+  <!-- Recipes -->
   <div class="recipes-container">
     <div class="recipes-grid">
 
-      <!-- First recipe + Shopping List side by side -->
       <a href="recipes/lemon-herb-chicken-tray-bake.html" class="meal-card">
         <div class="meal-card-image">
           <img src="images/recipes/lemon-herb-chicken-tray-bake.png" alt="Lemon & Herb Chicken Tray Bake">
@@ -110,15 +108,6 @@
         </div>
       </a>
 
-      <!-- Pink Shopping List Card -->
-      <a href="week-2-shopping-list.html" class="shop-card">
-        <div class="shop-icon">📋</div>
-        <h3>Shopping List</h3>
-        <p>Everything you need for Week 2</p>
-        <span style="margin-top:12px;font-weight:600;color:#030202;">View Full List →</span>
-      </a>
-
-      <!-- Remaining recipes -->
       <a href="recipes/fish-finger-rice-bowls.html" class="meal-card">
         <div class="meal-card-image">
           <img src="images/recipes/crispy-fish-finger-rice-bowls.png" alt="Crispy Fish Finger Rice Bowls">
@@ -194,7 +183,38 @@
     </div>
   </div>
 
-  <!-- Back Link -->
+  <!-- Shopping List Card -->
+  <div style="max-width:1100px;margin:0 auto 60px;padding:0 48px;">
+    <a href="week-2-shopping-list.html" class="shop-card" style="max-width:420px;margin:0 auto;display:block;">
+      <h3>Shopping List</h3>
+      <p>Everything you need for Week 2</p>
+      <span style="font-weight:600;color:#030202;">View Full List →</span>
+    </a>
+  </div>
+
+  <!-- Picnic Tea Section -->
+  <div style="max-width:1200px;margin:40px auto 60px;padding:0 48px;">
+    <div style="background:#E5C868;border-radius:24px;padding:48px 56px;text-align:center;">
+      <div style="display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:16px;">
+        <div style="width:46px;height:46px;background:#F6979A;border:2px solid #030202;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#030202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 10h18M3 10l2-6h14l2 6M5 10v10h14V10"/>
+            <path d="M8 10V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4"/>
+            <path d="M9 18h6"/>
+          </svg>
+        </div>
+        <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-size:1.85rem;font-weight:800;margin:0;">Picnic Tea</h2>
+      </div>
+      <p style="font-size:16px;color:#333;max-width:620px;margin:0 auto;line-height:1.65;">
+        Not every evening needs a full cooked meal. Picnic Tea is our relaxed, low-effort option — 
+        a chance to use up whatever bits and pieces are left from the week’s shopping without needing to cook or plan anything complicated. 
+        It’s especially handy on kid club nights when you need something quick, or when you’re eating on the go. 
+        So get that picnic blanket out — even if it’s only on the living room floor.
+      </p>
+    </div>
+  </div>
+
+  <!-- Bottom Back Link -->
   <div class="footer">
     <a href="weekly-plan.html" class="back-link-bottom">← Back to Weekly Plans</a>
   </div>
