@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week Tabs Preview – What's For Tea</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --pink: #F6979A; --black: #030202; --cream: #FDF5EA; --mustard: #E5C868;
+      --font-heading: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Work Sans', sans-serif;
+    }
+    body { background: var(--cream); font-family: var(--font-body); color: var(--black); padding: 40px; }
+
+    .tabs-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .week-tab {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      border: 2px solid transparent;
+      transition: all 0.18s;
+      background: white;
+      color: var(--black);
+      box-shadow: 0 1px 4px rgba(3,2,2,0.08);
+      white-space: nowrap;
+    }
+    .week-tab.active {
+      background: var(--mustard);
+      border-color: var(--mustard);
+      color: var(--black);
+    }
+    .week-tab:hover:not(.coming-soon) {
+      background: var(--mustard);
+      border-color: var(--mustard);
+    }
+    .week-tab.coming-soon {
+      background: white;
+      color: rgba(3,2,2,0.45);
+      cursor: default;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h3 style="margin-bottom:16px; font-family: var(--font-heading);">Week Tabs (live style)</h3>
+
+  <div class="tabs-container">
+    <a href="#" class="week-tab active">Week 1</a>
+    <a href="#" class="week-tab">Week 2</a>
+    <a href="#" class="week-tab coming-soon">Week 3 – Coming soon</a>
+    <a href="#" class="week-tab coming-soon">Week 4 – Coming soon</a>
+    <a href="#" class="week-tab coming-soon">Week 5 – Coming soon</a>
+    <a href="#" class="week-tab coming-soon">Week 6 – Coming soon</a>
+  </div>
+
+</body>
+</html>

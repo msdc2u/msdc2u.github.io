@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Recipes – What's For Tea</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --pink: #F6979A; --black: #030202; --cream: #FDF5EA; --mustard: #E5C868;
+      --font-heading: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Work Sans', sans-serif;
+    }
+    body { background: var(--cream); font-family: var(--font-body); color: var(--black); }
+
+    /* Header - exact match */
+    .site-header { background: var(--cream); border-bottom: 1.5px solid rgba(3,2,2,0.08); position: sticky; top: 0; z-index: 100; }
+    .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .site-logo { display: flex; align-items: center; text-decoration: none; }
+    .site-logo img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; }
+    .site-nav { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .site-nav a { font-family: var(--font-body); font-size: 15px; font-weight: 500; color: var(--black); text-decoration: none; padding: 6px 16px; border-radius: 999px; }
+    .site-nav a.active { color: var(--pink); font-weight: 600; }
+    .btn-cta { background: var(--pink); color: var(--black); padding: 11px 24px; border-radius: 999px; text-decoration: none; font-weight: 600; white-space: nowrap; }
+
+    /* Page header */
+    .page-header { max-width: 1200px; margin: 0 auto; padding: 48px 48px 32px; }
+    .page-header h1 { font-family: var(--font-heading); font-size: 2.8rem; font-weight: 800; color: var(--black); margin-bottom: 10px; }
+    .page-header h1 .pink { color: var(--pink); }
+    .page-header p { font-size: 16px; color: rgba(3,2,2,0.55); max-width: 480px; line-height: 1.6; }
+
+    /* Search + Filters - exact */
+    .search-bar { max-width: 1200px; margin: 0 auto; padding: 0 48px 40px; }
+    .search-row { display: flex; gap: 12px; align-items: center; background: white; border-radius: 999px; padding: 10px 10px 10px 20px; box-shadow: 0 2px 12px rgba(3,2,2,0.07); }
+    .search-row svg { flex-shrink: 0; opacity: 0.4; }
+    .search-row input { flex: 1; border: none; outline: none; font-family: var(--font-body); font-size: 15px; color: var(--black); background: transparent; }
+    .search-row input::placeholder { color: rgba(3,2,2,0.35); }
+    .filter-chips { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
+    .chip { display: inline-flex; align-items: center; gap: 6px; padding: 8px 18px; border-radius: 999px; font-family: var(--font-body); font-size: 13px; font-weight: 600; cursor: pointer; border: 2px solid transparent; transition: all 0.18s; background: white; color: var(--black); box-shadow: 0 1px 4px rgba(3,2,2,0.08); }
+    .chip:hover, .chip.active { background: var(--pink); color: var(--black); border-color: var(--pink); }
+    .chip.filter-btn { background: var(--mustard); border-color: var(--mustard); color: var(--black); }
+    .chip.filter-btn:hover { background: #d4b55a; }
+
+    /* Results + Grid */
+    .recipes-wrap { max-width: 1200px; margin: 0 auto; padding: 0 48px 64px; }
+    .results-count { font-size: 14px; color: rgba(3,2,2,0.45); margin-bottom: 24px; font-family: var(--font-body); }
+    .recipe-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+
+    .recipe-card { background: white; border-radius: 16px; overflow: hidden; text-decoration: none; color: var(--black); transition: transform 0.2s, box-shadow 0.2s; box-shadow: 0 2px 8px rgba(3,2,2,0.06); display: flex; flex-direction: column; }
+    .recipe-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(3,2,2,0.1); }
+    .card-image { aspect-ratio: 4/3; background: var(--cream); overflow: hidden; }
+    .card-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .card-body { padding: 16px 18px 20px; flex: 1; display: flex; flex-direction: column; gap: 8px; }
+    .cat-tag { display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--pink); }
+    .card-body h3 { font-family: var(--font-heading); font-size: 15px; font-weight: 700; line-height: 1.35; color: var(--black); flex: 1; }
+    .card-meta { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 8px; border-top: 1px solid rgba(3,2,2,0.06); }
+    .cost-badge { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; }
+    .cost-dot { width: 7px; height: 7px; border-radius: 50%; }
+    .cost-low .cost-dot { background: #4CAF50; }
+    .cost-mid .cost-dot { background: #FFC107; }
+    .serves { font-size: 12px; color: rgba(3,2,2,0.4); }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="site-logo">
+        <img src="https://whatsfortea.uk/images/logo.jpg" alt="What's For Tea">
+      </a>
+      <nav>
+        <ul class="site-nav">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Real Recipes</a></li>
+          <li><a href="#" class="active">All Recipes</a></li>
+          <li><a href="#">Weekly Plan</a></li>
+        </ul>
+      </nav>
+      <a href="#" class="btn-cta">Get Weekly Plans →</a>
+    </div>
+  </header>
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <h1><span class="pink">All</span> Recipes</h1>
+    <p>Real family recipes for real life. Simple meals people will actually eat, from quick weeknight teas to family favourites.</p>
+  </div>
+
+  <!-- Search + Filters (exact live styling) -->
+  <div class="search-bar">
+    <div class="search-row">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" placeholder="Search recipes (e.g. 'pasta', 'chicken')">
+    </div>
+    <div class="filter-chips">
+      <span class="chip filter-btn active">All</span>
+      <span class="chip">Chicken</span>
+      <span class="chip">Pasta</span>
+      <span class="chip">Rice Dishes</span>
+      <span class="chip">Fakeaways</span>
+      <span class="chip">Traybakes</span>
+    </div>
+  </div>
+
+  <!-- Results + Grid -->
+  <div class="recipes-wrap">
+    <div class="results-count">Showing all 74 recipes</div>
+    <div class="recipe-grid">
+      <!-- Placeholder cards -->
+      <a href="#" class="recipe-card" data-cat="Chicken">
+        <div class="card-image"><img src="https://picsum.photos/id/1011/400/300" alt=""></div>
+        <div class="card-body">
+          <span class="cat-tag">Chicken</span>
+          <h3>25-Minute Family Air Fryer Chicken &amp; Chips</h3>
+          <div class="card-meta">
+            <span class="cost-badge cost-low"><span class="cost-dot"></span>Low</span>
+            <span class="serves">Serves 4</span>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="recipe-card" data-cat="Pasta">
+        <div class="card-image"><img src="https://picsum.photos/id/292/400/300" alt=""></div>
+        <div class="card-body">
+          <span class="cat-tag">Pasta</span>
+          <h3>5-Ingredient Creamy Bacon Pasta</h3>
+          <div class="card-meta">
+            <span class="cost-badge cost-low"><span class="cost-dot"></span>Low</span>
+            <span class="serves">Serves 4</span>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="recipe-card" data-cat="Traybakes">
+        <div class="card-image"><img src="https://picsum.photos/id/312/400/300" alt=""></div>
+        <div class="card-body">
+          <span class="cat-tag">Traybakes</span>
+          <h3>Sausage Tray Bake</h3>
+          <div class="card-meta">
+            <span class="cost-badge cost-low"><span class="cost-dot"></span>Low</span>
+            <span class="serves">Serves 4</span>
+          </div>
+        </div>
+      </a>
+      <a href="#" class="recipe-card" data-cat="Rice Dishes">
+        <div class="card-image"><img src="https://picsum.photos/id/201/400/300" alt=""></div>
+        <div class="card-body">
+          <span class="cat-tag">Rice Dishes</span>
+          <h3>Prawn Fried Rice</h3>
+          <div class="card-meta">
+            <span class="cost-badge cost-low"><span class="cost-dot"></span>Low</span>
+            <span class="serves">Serves 4</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>

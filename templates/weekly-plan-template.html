@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week [X] Meal Plan – What's For Tea</title>
+  <meta name="description" content="Week [X] family meal plan with 7 simple, filling recipes.">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --pink: #F6979A; --black: #030202; --cream: #FDF5EA; --mustard: #E5C868;
+      --font-heading: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Work Sans', sans-serif;
+    }
+    body { background: var(--cream); font-family: var(--font-body); color: var(--black); }
+
+    .site-header { background: var(--cream); border-bottom: 1.5px solid rgba(3,2,2,0.08); position: sticky; top: 0; z-index: 100; }
+    .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .site-logo img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; }
+    .site-nav { display: flex; align-items: center; gap: 4px; list-style: none; flex: 1; justify-content: center; }
+    .site-nav a { font-size: 15px; font-weight: 500; color: var(--black); text-decoration: none; padding: 6px 16px; border-radius: 999px; }
+    .site-nav a.active { color: var(--pink); font-weight: 600; }
+    .btn-cta { background: var(--pink); color: var(--black); font-size: 15px; font-weight: 600; padding: 11px 24px; border-radius: 999px; text-decoration: none; }
+
+    .page-header { max-width: 1200px; margin: 40px auto 0; padding: 0 48px; }
+    .back-link { color: var(--pink); text-decoration: none; font-weight: 600; }
+
+    .hero { max-width: 1200px; margin: 0 auto 48px; padding: 0 48px; }
+    .hero-content { background: var(--mustard); border-radius: 24px; padding: 48px 56px; text-align: center; }
+    .hero-content h1 { font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; }
+    .hero-content p { font-size: 16px; color: rgba(3,2,2,0.7); max-width: 520px; margin: 0 auto; }
+
+    .recipes-container { max-width: 1100px; margin: 0 auto; padding: 0 48px 80px; }
+    .recipes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+
+    .meal-card { background: white; border-radius: 20px; overflow: hidden; text-decoration: none; color: var(--black); box-shadow: 0 2px 12px rgba(3,2,2,0.06); display: block; }
+    .meal-card-image { aspect-ratio: 16/9; background: #e8e0d5; overflow: hidden; }
+    .meal-card-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .meal-card-body { padding: 20px 22px 24px; }
+    .meal-card-body h3 { font-family: var(--font-heading); font-size: 1.35rem; font-weight: 700; margin-bottom: 8px; }
+    .cost-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: #2e7d32; margin-bottom: 10px; }
+    .cost-dot { width: 8px; height: 8px; border-radius: 50%; background: #4CAF50; }
+    .meal-card-body p { font-size: 15px; color: rgba(3,2,2,0.65); line-height: 1.5; margin-bottom: 16px; }
+    .view-recipe { font-size: 15px; font-weight: 600; color: var(--pink); text-decoration: none; }
+
+    .shopping-tile { background: #F6979A; border-radius: 20px; padding: 32px 24px; text-align: center; }
+    .shopping-tile h3 { font-family: var(--font-heading); font-size: 1.35rem; font-weight: 700; color: #030202; margin-bottom: 8px; }
+    .shopping-tile p { color: #030202; font-size: 15px; margin-bottom: 20px; opacity: 0.85; }
+
+    .picnic-tea { max-width: 1200px; margin: 40px auto 60px; padding: 0 48px; }
+    .picnic-tea-box { background: var(--mustard); border-radius: 24px; padding: 48px 56px; text-align: center; }
+
+    .site-footer { max-width: 1200px; margin: 60px auto 40px; padding: 0 48px; text-align: center; }
+    .back-link-bottom { color: var(--pink); text-decoration: none; font-weight: 600; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo"><img src="../images/logo.jpg" alt="What's For Tea"></a>
+      <nav>
+        <ul class="site-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="real-recipes.html">Real Recipes</a></li>
+          <li><a href="all-recipes.html">All Recipes</a></li>
+          <li><a href="weekly-plan.html" class="active">Weekly Plan</a></li>
+        </ul>
+      </nav>
+      <a href="weekly-plan.html" class="btn-cta">Weekly Plans</a>
+    </div>
+  </header>
+
+  <!-- Back Link -->
+  <div class="page-header">
+    <a href="weekly-plan.html" class="back-link">← Back to Weekly Plans</a>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Week [X] Meal Plan</h1>
+      <p>7 simple, filling family meals planned out for you. No complicated recipes — just good food.</p>
+    </div>
+  </div>
+
+  <!-- Recipes Grid -->
+  <div class="recipes-container">
+    <div class="recipes-grid">
+
+      <!-- 7 Meal Cards -->
+      <a href="[recipe-1-link]" class="meal-card">
+        <div class="meal-card-image"><img src="[recipe-1-image]" alt="[Recipe 1]"></div>
+        <div class="meal-card-body">
+          <h3>[Recipe 1 Name]</h3>
+          <div class="cost-badge"><span class="cost-dot"></span> Low cost</div>
+          <p>[Short description]</p>
+          <span class="view-recipe">View Recipe →</span>
+        </div>
+      </a>
+
+      <a href="[recipe-2-link]" class="meal-card">
+        <div class="meal-card-image"><img src="[recipe-2-image]" alt="[Recipe 2]"></div>
+        <div class="meal-card-body">
+          <h3>[Recipe 2 Name]</h3>
+          <div class="cost-badge"><span class="cost-dot"></span> Low cost</div>
+          <p>[Short description]</p>
+          <span class="view-recipe">View Recipe →</span>
+        </div>
+      </a>
+
+      <a href="[recipe-3-link]" class="meal-card">
+        <div class="meal-card-image"><img src="[recipe-3-image]" alt="[Recipe 3]"></div>
+        <div class="meal-card-body">
+          <h3>[Recipe 3 Name]</h3>
+          <div class="cost-badge"><span class="cost-dot"></span> Low cost</div>
+          <p>[Short description]</p>
+          <span class="view-recipe">View Recipe →</span>
+        </div>
+      </a>
+
+      <a href="[recipe-4-link]" class="meal-card">
+        <div class="meal-card-image"><img src="[recipe-4-image]" alt="[Recipe 4]"></div>
+        <div class="meal-card-body">
+          <h3>[Recipe 4 Name]</h3>
+          <div class="cost-badge"><span class="cost-dot"></span> Low cost</div>
+          <p>[Short description]</p>
+          <span class="view-recipe">View Recipe →</span>
+        </div>
+      </a>
+
+      <a href="[recipe-5-link]" class="meal-card">
+        <div class="meal-card-image"><img src="[recipe-5-image]" alt="[Recipe 5]"></div>
+        <div class="meal-card-body">
+          <h3>[Recipe 5 Name]</h3>
+          <div class="cost-badge"><span class="cost-dot"></span> Low cost</div>
+          <p>[Short description]</p>
+          <span class="view-recipe">View Recipe →</span>
+        </div>
+      </a>
+
+      <a href="[recipe-6-link]" class="meal-card">
+        <div class="meal-card-image"><img src="[recipe-6-image]" alt="[Recipe 6]"></div>
+        <div class="meal-card-body">
+          <h3>[Recipe 6 Name]</h3>
+          <div class="cost-badge"><span class="cost-dot"></span> Low cost</div>
+          <p>[Short description]</p>
+          <span class="view-recipe">View Recipe →</span>
+        </div>
+      </a>
+
+      <a href="[recipe-7-link]" class="meal-card">
+        <div class="meal-card-image"><img src="[recipe-7-image]" alt="[Recipe 7]"></div>
+        <div class="meal-card-body">
+          <h3>[Recipe 7 Name]</h3>
+          <div class="cost-badge"><span class="cost-dot"></span> Low cost</div>
+          <p>[Short description]</p>
+          <span class="view-recipe">View Recipe →</span>
+        </div>
+      </a>
+
+      <!-- Shopping List Tile -->
+      <div class="shopping-tile">
+        <div style="width:64px;height:64px;background:#F6979A;border:2px solid #030202;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#030202" stroke-width="2">
+            <path d="M3 3h18v18H3V3z"/><path d="M8 8h8M8 12h8M8 16h8"/>
+          </svg>
+        </div>
+        <h3>Shopping List</h3>
+        <p>Everything you need for Week [X]</p>
+        <a href="week-[X]-shopping-list.html" style="background:#030202;color:white;font-weight:600;padding:10px 24px;border-radius:999px;text-decoration:none;display:inline-block;">View Full List</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Picnic Tea Section -->
+  <div class="picnic-tea">
+    <div class="picnic-tea-box">
+      <div style="display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:16px;">
+        <div style="width:46px;height:46px;background:#F6979A;border:2px solid #030202;border-radius:50%;display:flex;align-items:center;justify-content:center;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#030202" stroke-width="2">
+            <path d="M3 10h18M3 10l2-6h14l2 6M5 10v10h14V10"/>
+            <path d="M8 10V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4"/>
+            <path d="M9 18h6"/>
+          </svg>
+        </div>
+        <h2 style="font-family: var(--font-heading); font-size: 1.85rem; font-weight: 800; margin:0;">Picnic Tea</h2>
+      </div>
+      <p style="font-size:16px;color:#333;max-width:620px;margin:0 auto;line-height:1.65;">
+        Not every evening needs a full cooked meal. Picnic Tea is our relaxed, low-effort option — 
+        a chance to use up whatever bits and pieces are left from the week’s shopping without needing to cook or plan anything complicated. 
+        It’s especially handy on kid club nights when you need something quick, or when you’re eating on the go. 
+        So get that picnic blanket out — even if it’s only on the living room floor.
+      </p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="site-footer">
+    <a href="weekly-plan.html" class="back-link-bottom">← Back to Weekly Plans</a>
+  </div>
+
+</body>
+</html>
