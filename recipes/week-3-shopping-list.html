@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 3 Shopping List – What's For Tea</title>
+  <meta name="description" content="Week 3 shopping list for the family meal plan.">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --pink: #F6979A; --black: #030202; --cream: #FDF5EA; --mustard: #E5C868;
+      --font-heading: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Work Sans', sans-serif;
+    }
+    body { background: var(--cream); font-family: var(--font-body); color: var(--black); }
+
+    .site-header { background: var(--cream); border-bottom: 1.5px solid rgba(3,2,2,0.08); position: sticky; top: 0; z-index: 100; }
+    .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .site-logo { display: flex; align-items: center; text-decoration: none; }
+    .site-logo img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; }
+    .site-nav { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .site-nav a { font-family: var(--font-body); font-size: 15px; font-weight: 500; color: var(--black); text-decoration: none; padding: 6px 16px; border-radius: 999px; }
+    .site-nav a.active { color: var(--pink); font-weight: 600; }
+    .btn-cta { background: var(--pink); color: var(--black); padding: 11px 24px; border-radius: 999px; text-decoration: none; font-weight: 600; white-space: nowrap; }
+
+    .shopping-container { max-width: 900px; margin: 40px auto; padding: 0 48px; }
+    .shopping-container h1 { font-family: var(--font-heading); font-size: 2.4rem; font-weight: 800; margin-bottom: 16px; }
+    .shopping-container > p { font-size: 15px; color: rgba(3,2,2,0.7); margin-bottom: 32px; max-width: 620px; }
+
+    .category { background: white; border-radius: 20px; padding: 28px 32px; margin-bottom: 24px; box-shadow: 0 2px 12px rgba(3,2,2,0.06); }
+    .category h2 { font-family: var(--font-heading); font-size: 1.25rem; color: var(--pink); margin-bottom: 16px; }
+    .category ul { list-style: none; padding: 0; margin: 0; }
+    .category li { font-size: 15px; padding: 6px 0; border-bottom: 1px solid rgba(3,2,2,0.06); }
+    .category li:last-child { border-bottom: none; }
+
+    .note { font-size: 14px; color: rgba(3,2,2,0.65); max-width: 620px; margin-top: 32px; }
+
+    .site-footer { background: var(--pink); padding: 48px; margin-top: 60px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+    .footer-logo { display: flex; align-items: center; gap: 10px; }
+    .footer-logo img { width: 40px; height: 40px; border-radius: 50%; }
+    .footer-logo span { font-family: var(--font-heading); font-size: 15px; font-weight: 700; color: var(--black); }
+    .footer-nav { display: flex; flex-direction: column; gap: 10px; text-align: center; }
+    .footer-nav div { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+    .footer-nav a { font-size: 14px; color: rgba(3,2,2,0.65); text-decoration: none; font-family: var(--font-body); }
+    .footer-copy { font-size: 13px; color: rgba(3,2,2,0.5); }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="https://whatsfortea.uk/" class="site-logo">
+        <img src="https://whatsfortea.uk/images/logo.jpg" alt="What's For Tea">
+      </a>
+      <nav>
+        <ul class="site-nav">
+          <li><a href="https://whatsfortea.uk/">Home</a></li>
+          <li><a href="https://whatsfortea.uk/real-recipes.html">Real Recipes</a></li>
+          <li><a href="https://whatsfortea.uk/all-recipes.html">All Recipes</a></li>
+          <li><a href="https://whatsfortea.uk/weekly-plan.html">Weekly Plan</a></li>
+        </ul>
+      </nav>
+      <a href="https://whatsfortea.uk/weekly-plan.html" class="btn-cta">Get Weekly Plans →</a>
+    </div>
+  </header>
+
+  <div class="shopping-container">
+    <h1>Week 3 Shopping List</h1>
+    <p>This shopping list has been planned so ingredients work across multiple meals and help reduce waste. All quantities are based on a family of 2 adults and 2 children. Feel free to adjust everything to suit your family — nothing is set in stone.</p>
+
+    <div class="category">
+      <h2>Fresh</h2>
+      <ul>
+        <li>2 red peppers</li>
+        <li>1 red onion</li>
+        <li>2 onions</li>
+        <li>1.5kg potatoes (for chips + chunks + mash + sauté)</li>
+        <li>4 large baking potatoes</li>
+        <li>300g broccoli florets</li>
+        <li>200g frozen sweetcorn</li>
+      </ul>
+    </div>
+
+    <div class="category">
+      <h2>Meat &amp; Fish</h2>
+      <ul>
+        <li>8 pork sausages</li>
+        <li>8 chicken thighs (bone-in)</li>
+        <li>8 chicken thighs (boneless)</li>
+        <li>500g beef mince</li>
+        <li>500g pork mince</li>
+        <li>200g bacon lardons</li>
+        <li>400g white fish fillets (cod or haddock)</li>
+      </ul>
+    </div>
+
+    <div class="category">
+      <h2>Dairy</h2>
+      <ul>
+        <li>150g cheddar cheese</li>
+        <li>150g mozzarella</li>
+        <li>50g cheddar cheese (extra)</li>
+        <li>150ml double cream</li>
+        <li>1 egg</li>
+      </ul>
+    </div>
+
+    <div class="category">
+      <h2>Bakery / Basics</h2>
+      <ul>
+        <li>700g pasta (400g + 300g)</li>
+        <li>300g uncooked rice</li>
+        <li>2 × 400g tins chopped tomatoes</li>
+        <li>100g breadcrumbs</li>
+      </ul>
+    </div>
+
+    <div class="category">
+      <h2>Store Cupboard</h2>
+      <ul>
+        <li>2 tbsp smoked paprika</li>
+        <li>3 tsp garlic granules</li>
+        <li>2 tsp dried oregano</li>
+        <li>2 tsp dried mixed herbs / parsley</li>
+        <li>6 tbsp sweet chilli sauce</li>
+        <li>2 tbsp soy sauce</li>
+        <li>1 tbsp tomato ketchup</li>
+        <li>Cooking oil</li>
+        <li>Salt &amp; black pepper</li>
+      </ul>
+    </div>
+
+    <p class="note"><strong>Shopping List Optimised:</strong> Chicken, cheese, potatoes, onions and frozen veg are used across multiple meals to help reduce waste.</p>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="https://whatsfortea.uk/images/logo.jpg" alt="What's For Tea">
+        <span>What's For Tea</span>
+      </div>
+      <div class="footer-nav">
+        <div>
+          <a href="https://whatsfortea.uk/">Home</a>
+          <a href="https://whatsfortea.uk/real-recipes.html">Real Recipes</a>
+          <a href="https://whatsfortea.uk/all-recipes.html">All Recipes</a>
+          <a href="https://whatsfortea.uk/weekly-plan.html">Weekly Plan</a>
+        </div>
+        <div>
+          <a href="https://whatsfortea.uk/about.html">About</a>
+          <a href="https://whatsfortea.uk/contact.html">Contact</a>
+          <a href="https://whatsfortea.uk/privacy.html">Privacy</a>
+          <a href="https://whatsfortea.uk/terms.html">Terms</a>
+        </div>
+      </div>
+      <p class="footer-copy">&copy; 2026 What's For Tea</p>
+    </div>
+  </footer>
+
+</body>
+</html>
