@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 5 Meal Plan – What's For Tea</title>
+  <meta name="description" content="Week 5 family meal plan with 7 simple, filling recipes — sausages, chicken, chorizo pasta, salmon, beef meatballs and gammon teas the whole family will love.">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --pink: #F6979A; --black: #030202; --cream: #FDF5EA; --mustard: #E5C868;
+      --font-heading: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Work Sans', sans-serif;
+    }
+    body { background: var(--cream); font-family: var(--font-body); color: var(--black); }
+
+    .site-header { background: var(--cream); border-bottom: 1.5px solid rgba(3,2,2,0.08); position: sticky; top: 0; z-index: 100; }
+    .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .site-logo { display: flex; align-items: center; text-decoration: none; flex-shrink: 0; }
+    .site-logo img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; }
+    .site-nav { display: flex; align-items: center; gap: 4px; list-style: none; flex: 1; justify-content: center; }
+    .site-nav a { font-size: 15px; font-weight: 500; color: var(--black); text-decoration: none; padding: 6px 16px; border-radius: 999px; transition: background 0.18s; white-space: nowrap; }
+    .site-nav a:hover { background: rgba(246,151,154,0.15); }
+    .site-nav a.active { color: var(--pink); font-weight: 600; }
+    .btn-cta { display: inline-flex; align-items: center; gap: 8px; background: var(--pink); color: var(--black); font-size: 15px; font-weight: 600; padding: 11px 24px; border-radius: 999px; text-decoration: none; white-space: nowrap; flex-shrink: 0; transition: background 0.18s; }
+    .btn-cta:hover { background: #f0878a; }
+
+    .page-header { max-width: 1200px; margin: 40px auto 0; padding: 0 48px; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--pink); text-decoration: none; font-weight: 600; margin-bottom: 24px; }
+    .back-link:hover { text-decoration: underline; }
+
+    .hero { max-width: 1200px; margin: 0 auto 48px; padding: 0 48px; }
+    .hero-content { background: var(--mustard); border-radius: 24px; padding: 48px 56px; text-align: center; }
+    .hero-content h1 { font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; margin-bottom: 12px; }
+    .hero-content p { font-size: 16px; color: rgba(3,2,2,0.7); max-width: 520px; margin: 0 auto; }
+
+    .recipes-container { max-width: 1100px; margin: 0 auto; padding: 0 48px 80px; }
+    .recipes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+
+    .meal-card { background: white; border-radius: 20px; overflow: hidden; text-decoration: none; color: var(--black); box-shadow: 0 2px 12px rgba(3,2,2,0.06); transition: transform 0.2s, box-shadow 0.2s; display: block; }
+    .meal-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(3,2,2,0.1); }
+    .meal-card-image { aspect-ratio: 16/9; background: #e8e0d5; overflow: hidden; }
+    .meal-card-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .meal-card-body { padding: 20px 22px 24px; }
+    .meal-card-body h3 { font-family: var(--font-heading); font-size: 1.35rem; font-weight: 700; margin-bottom: 8px; line-height: 1.3; }
+    .cost-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: #2e7d32; margin-bottom: 10px; }
+    .cost-dot { width: 8px; height: 8px; border-radius: 50%; background: #4CAF50; }
+    .meal-card-body p { font-size: 15px; color: rgba(3,2,2,0.65); line-height: 1.5; margin-bottom: 16px; }
+    .view-recipe { font-size: 15px; font-weight: 600; color: var(--pink); text-decoration: none; }
+    .view-recipe:hover { text-decoration: underline; }
+
+    .footer { max-width: 1200px; margin: 60px auto 40px; padding: 0 48px; text-align: center; }
+    .back-link-bottom { display: inline-flex; align-items: center; gap: 8px; color: var(--pink); text-decoration: none; font-weight: 600; }
+
+    .picnic-tea { max-width: 1200px; margin: 40px auto 60px; padding: 0 48px; }
+    .picnic-box { background: #E5C868; border-radius: 24px; padding: 48px 56px; text-align: center; }
+    .picnic-icon { width: 46px; height: 46px; background: #F6979A; border: 2px solid #030202; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; }
+    .picnic-box h2 { font-family: var(--font-heading); font-size: 1.85rem; font-weight: 800; margin-bottom: 16px; }
+    .picnic-box p { font-size: 16px; color: #333; max-width: 620px; margin: 0 auto; line-height: 1.65; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">
+        <img src="images/logo.jpg" alt="What's For Tea">
+      </a>
+      <nav>
+        <ul class="site-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="real-recipes.html">Real Recipes</a></li>
+          <li><a href="all-recipes.html">All Recipes</a></li>
+          <li><a href="weekly-plan.html" class="active">Weekly Plan</a></li>
+        </ul>
+      </nav>
+      <a href="weekly-plan.html" class="btn-cta">Weekly Plans</a>
+    </div>
+  </header>
+
+  <!-- Back Link -->
+  <div class="page-header">
+    <a href="weekly-plan.html" class="back-link">← Back to Weekly Plans</a>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Week 5 Meal Plan</h1>
+      <p>7 simple, filling family meals planned out for you. No complicated recipes — just good food.</p>
+    </div>
+  </div>
+
+  <!-- Recipes -->
+  <div class="recipes-container">
+    <div class="recipes-grid">
+
+      <!-- 1 -->
+      <a href="recipes/sausages-onion-gravy-sweet-potato-chips.html" class="meal-card">
+        <div class="meal-card-image">
+          <img src="images/recipes/sausages-onion-gravy-sweet-potato-chips/hero.jpg" alt="Sausages with quick onion gravy and sweet potato chips">
+        </div>
+        <div class="meal-card-body">
+          <h3>Sausages with Quick Onion Gravy & Sweet Potato Chips</h3>
+          <div class="cost-badge"><span class="cost-dot"></span> Low cost</div>
+          <p>Browned sausages with a rich onion marmalade gravy and golden sweet potato chips.</p>
+          <span class="view-recipe">View Recipe →</span>
+        </div>
+      </a>
+
+      <!-- 2 -->
+      <a href="recipes/crispy-chicken-wraps-mango-mayo.html" class="meal-card">
+        <div class="meal-card-image">
+          <img src="images/recipes/crispy-chicken-wraps-mango-mayo/hero.jpg" alt="Crispy chicken wraps with mango mayo">
+        </div>
+        <div class="meal-card-body">
+          <h3>Crispy Chicken Wraps with Mango Mayo</h3>
+          <div class="cost-badge"><span class="cost-dot"></span> Low cost</div>
+          <p>Golden crispy chicken, lettuce and tomato wrapped up with a sweet mango mayo.</p>
+          <span class="view-recipe">View Recipe →</span>
+        </div>
+      </a>
+
+      <!-- 3 -->
+      <a href="recipes/chorizo-red-pepper-tomato-pasta.html" class="meal-card">
+        <div class="meal-card-image">
+          <img src="images/recipes/chorizo-red-pepper-tomato-pasta/hero.jpg" alt="Chorizo, red pepper and tomato pasta">
+        </div>
+        <div class="meal-card-body">
+          <h3>Chorizo, Red Pepper & Tomato Pasta</h3>
+          <div class="cost-badge"><span class="cost-dot"></span> Low cost</div>
+          <p>Smoky chorizo and red pepper in a creamy tomato sauce, tossed through pasta.</p>
+          <span class="view-recipe">View Recipe →</span>
+        </div>
+      </a>
+
+      <!-- 4 -->
+      <a href="recipes/marry-me-chicken-thighs-cheesy-roast-potatoes.html" class="meal-card">
+        <div class="meal-card-image">
+          <img src="images/recipes/marry-me-chicken-thighs-cheesy-roast-potatoes/hero.jpg" alt="Marry Me chicken thighs with cheesy roast saute potatoes">
+        </div>
+        <div class="meal-card-body">
+          <h3>'Marry Me' Chicken Thighs with Cheesy Roast Sauté Potatoes</h3>
+          <div class="cost-badge"><span class="cost-dot"></span> Low cost</div>
+          <p>Golden chicken thighs in a rich, creamy tomato sauce with cheesy roast potatoes.</p>
+          <span class="view-recipe">View Recipe →</span>
+        </div>
+      </a>
+
+      <!-- 5 -->
+      <a href="recipes/crispy-rice-salad-cajun-salmon.html" class="meal-card">
+        <div class="meal-card-image">
+          <img src="images/recipes/crispy-rice-salad-cajun-salmon/hero.jpg" alt="Crispy rice salad with Cajun salmon">
+        </div>
+        <div class="meal-card-body">
+          <h3>Crispy Rice Salad with Cajun Salmon</h3>
+          <div class="cost-badge"><span class="cost-dot"></span> Low cost</div>
+          <p>Crispy fried rice with red pepper and sweetcorn, topped with flaked Cajun salmon.</p>
+          <span class="view-recipe">View Recipe →</span>
+        </div>
+      </a>
+
+      <!-- 6 -->
+      <a href="recipes/smoky-beef-meatball-pasta-bake.html" class="meal-card">
+        <div class="meal-card-image">
+          <img src="images/recipes/smoky-beef-meatball-pasta-bake/hero.jpg" alt="Smoky beef meatball pasta bake">
+        </div>
+        <div class="meal-card-body">
+          <h3>Smoky Beef Meatball Pasta Bake</h3>
+          <div class="cost-badge"><span class="cost-dot"></span> Low cost</div>
+          <p>Smoky paprika beef meatballs baked with pasta and melted cheese.</p>
+          <span class="view-recipe">View Recipe →</span>
+        </div>
+      </a>
+
+      <!-- 7 -->
+      <a href="recipes/honey-glazed-gammon-steaks-wedges-corn.html" class="meal-card">
+        <div class="meal-card-image">
+          <img src="images/recipes/honey-glazed-gammon-steaks-wedges-corn/hero.jpg" alt="Honey glazed gammon steaks with wedges and corn on the cob">
+        </div>
+        <div class="meal-card-body">
+          <h3>Honey Glazed Gammon Steaks, Wedges & Corn on the Cob</h3>
+          <div class="cost-badge"><span class="cost-dot"></span> Low cost</div>
+          <p>Sticky honey glazed gammon steaks with golden potato wedges and corn on the cob.</p>
+          <span class="view-recipe">View Recipe →</span>
+        </div>
+      </a>
+
+      <!-- Shopping List Tile (8th item in grid) -->
+      <div onclick="window.location.href='week-5-shopping-list.html'" style="background: #F6979A; border-radius: 20px; padding: 32px 24px; text-align: center; cursor: pointer; display: flex; flex-direction: column; justify-content: center; align-items: center; box-shadow: 0 2px 12px rgba(3,2,2,0.06);">
+        <div style="width: 64px; height: 64px; background: #F6979A; border: 2px solid #030202; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#030202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 3h18v18H3V3z"/>
+            <path d="M8 8h8M8 12h8M8 16h8"/>
+          </svg>
+        </div>
+        <h3 style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.35rem; font-weight: 700; color: #030202; margin-bottom: 8px;">Shopping List</h3>
+        <p style="color: #030202; font-size: 15px; margin-bottom: 20px; opacity: 0.85;">Everything you need for Week 5</p>
+        <span style="background: #030202; color: white; font-weight: 600; padding: 10px 24px; border-radius: 999px; font-size: 15px; text-decoration: none;">View Full List</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Picnic Tea -->
+  <div class="picnic-tea">
+    <div class="picnic-box">
+      <div class="picnic-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#030202" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 10h18M3 10l2-6h14l2 6M5 10v10h14V10"/>
+          <path d="M8 10V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4"/>
+          <path d="M9 18h6"/>
+        </svg>
+      </div>
+      <h2>Picnic Tea</h2>
+      <p>Not every evening needs a full cooked meal. Picnic Tea is our relaxed, low-effort option — a chance to use up whatever bits and pieces are left from the week's shopping without needing to cook or plan anything complicated. It's especially handy on kid club nights when you need something quick, or when you're eating on the go.</p>
+    </div>
+  </div>
+
+  <!-- Bottom Back Link -->
+  <div class="footer">
+    <a href="weekly-plan.html" class="back-link-bottom">← Back to Weekly Plans</a>
+  </div>
+
+</body>
+</html>
