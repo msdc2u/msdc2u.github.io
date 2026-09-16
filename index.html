@@ -385,32 +385,35 @@
       font-weight: 700;
     }
     .why-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 40px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .why-item .why-icon {
-      font-size: 36px;
-      margin-bottom: 16px;
-      font-weight: 700;
-      color: #030202;
-      line-height: 1;
-      /* Force black even on colour emojis */
-      filter: grayscale(100%) brightness(0);
-    }
-    .why-item h3 {
-      font-family: var(--font-heading);
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-    .why-item p {
-      font-size: 14px;
-      line-height: 1.5;
-      opacity: 0.85;
-    }
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 40px;
+          max-width: 900px;
+          margin: 0 auto;
+        }
+        .why-item .why-icon {
+          width: 64px;
+          height: 64px;
+          margin: 0 auto 16px;
+          line-height: 0;
+        }
+        .why-item .why-icon img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          display: block;
+        }
+        .why-item h3 {
+          font-family: var(--font-heading);
+          font-size: 1.15rem;
+          font-weight: 700;
+          margin-bottom: 8px;
+        }
+        .why-item p {
+          font-size: 14px;
+          line-height: 1.5;
+          opacity: 0.85;
+        }
 
     /* STOP THINKING BANNER */
     .plan-wrap { max-width: 1200px; margin: 0 auto 56px; padding: 0 48px; }
@@ -703,22 +706,22 @@
     <div class="why-section">
       <h2>Meals that actually work for families</h2>
       <div class="why-grid">
-        <div class="why-item">
-          <div class="why-icon">£</div>
-          <h3>Budget friendly</h3>
-          <p>Every recipe uses full pack prices so you know exactly what you're spending.</p>
-        </div>
-        <div class="why-item">
-          <div class="why-icon">⏱</div>
-          <h3>No stress cooking</h3>
-          <p>One-pan meals and simple steps. Made for when you're tired at 5pm.</p>
-        </div>
-        <div class="why-item">
-          <div class="why-icon">☺</div>
-          <h3>Kids will eat it</h3>
-          <p>Nothing weird. Nothing niche. Real food that families actually finish.</p>
-        </div>
-      </div>
+              <div class="why-item">
+                <div class="why-icon"><img src="images/why/budget-friendly.png" alt=""></div>
+                <h3>Budget friendly</h3>
+                <p>Every recipe uses full pack prices so you know exactly what you're spending.</p>
+              </div>
+              <div class="why-item">
+                <div class="why-icon"><img src="images/why/no-stress-cooking.png" alt=""></div>
+                <h3>No stress cooking</h3>
+                <p>One-pan meals and simple steps. Made for when you're tired at 5pm.</p>
+              </div>
+              <div class="why-item">
+                <div class="why-icon"><img src="images/why/kids-will-eat-it.png" alt=""></div>
+                <h3>Kids will eat it</h3>
+                <p>Nothing weird. Nothing niche. Real food that families actually finish.</p>
+              </div>
+            </div>
     </div>
   </div>
 
