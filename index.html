@@ -350,24 +350,25 @@
     }
     .cat-item { text-decoration: none; color: var(--black); }
     .cat-circle {
-      width: 88px;
-      height: 88px;
-      margin: 0 auto 14px;
-      border-radius: 50%;
-      background: var(--pink);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;
-      transition: transform 0.2s;
-    }
-    /* Black icons only — do not filter the pink circle background */
-    .cat-circle .cat-icon {
-      filter: grayscale(100%) brightness(0);
-      line-height: 1;
-    }
-    .cat-item:hover .cat-circle { transform: scale(1.06); }
-    .cat-item p { font-size: 15px; font-weight: 600; }
+          width: 88px;
+          height: 88px;
+          margin: 0 auto 14px;
+          border-radius: 50%;
+          overflow: hidden;
+          background: transparent;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: transform 0.2s;
+        }
+        .cat-circle img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+        .cat-item:hover .cat-circle { transform: scale(1.06); }
+        .cat-item p { font-size: 15px; font-weight: 600; }
 
     /* MEALS THAT WORK */
     .why-wrap { max-width: 1200px; margin: 0 auto 56px; padding: 0 48px; }
@@ -678,23 +679,23 @@
   <section class="categories-section">
     <h2>Browse Categories</h2>
     <div class="cat-grid">
-      <a href="real-recipes.html" class="cat-item">
-        <div class="cat-circle"><span class="cat-icon">📺</span></div>
-        <p>Quick Family Dinners</p>
-      </a>
-      <a href="real-recipes.html#fakeaways" class="cat-item">
-        <div class="cat-circle"><span class="cat-icon">🥡</span></div>
-        <p>Fakeaways</p>
-      </a>
-      <a href="real-recipes.html#pasta" class="cat-item">
-        <div class="cat-circle"><span class="cat-icon">🍝</span></div>
-        <p>Pasta Nights</p>
-      </a>
-      <a href="real-recipes.html#traybakes" class="cat-item">
-        <div class="cat-circle"><span class="cat-icon">🥘</span></div>
-        <p>One Pan Favourites</p>
-      </a>
-    </div>
+          <a href="real-recipes.html" class="cat-item">
+            <div class="cat-circle"><img src="images/categories/family-dinners.png" alt=""></div>
+            <p>Quick Family Dinners</p>
+          </a>
+          <a href="real-recipes.html#fakeaways" class="cat-item">
+            <div class="cat-circle"><img src="images/categories/fakeaways.png" alt=""></div>
+            <p>Fakeaways</p>
+          </a>
+          <a href="real-recipes.html#pasta" class="cat-item">
+            <div class="cat-circle"><img src="images/categories/pasta-nights.png" alt=""></div>
+            <p>Pasta Nights</p>
+          </a>
+          <a href="real-recipes.html#traybakes" class="cat-item">
+            <div class="cat-circle"><img src="images/categories/one-pan-favourites.png" alt=""></div>
+            <p>One Pan Favourites</p>
+          </a>
+        </div>
   </section>
 
   <!-- Meals that actually work for families -->
