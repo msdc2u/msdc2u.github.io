@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Week 7 Shopping List – What's For Tea</title>
+  <meta name="description" content="Week 7 shopping list for the family meal plan.">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --pink: #F6979A; --black: #030202; --cream: #FDF5EA; --mustard: #E5C868;
+      --font-heading: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Work Sans', sans-serif;
+    }
+    body { background: var(--cream); font-family: var(--font-body); color: var(--black); }
+
+    .site-header { background: var(--cream); border-bottom: 1.5px solid rgba(3,2,2,0.08); position: sticky; top: 0; z-index: 100; }
+    .header-inner { max-width: 1200px; margin: 0 auto; padding: 0 48px; height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 32px; }
+    .site-logo { display: flex; align-items: center; text-decoration: none; }
+    .site-logo img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; }
+    .site-nav { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .site-nav a { font-family: var(--font-body); font-size: 15px; font-weight: 500; color: var(--black); text-decoration: none; padding: 6px 16px; border-radius: 999px; }
+    .site-nav a.active { color: var(--pink); font-weight: 600; }
+    .btn-cta { background: var(--pink); color: var(--black); padding: 11px 24px; border-radius: 999px; text-decoration: none; font-weight: 600; white-space: nowrap; }
+
+    .shopping-container { max-width: 900px; margin: 40px auto; padding: 0 48px; }
+    .shopping-container h1 { font-family: var(--font-heading); font-size: 2.4rem; font-weight: 800; margin-bottom: 16px; }
+    .shopping-container > p { font-size: 15px; color: rgba(3,2,2,0.7); margin-bottom: 32px; max-width: 620px; }
+
+    .category { background: white; border-radius: 20px; padding: 28px 32px; margin-bottom: 24px; box-shadow: 0 2px 12px rgba(3,2,2,0.06); }
+    .category h2 { font-family: var(--font-heading); font-size: 1.25rem; color: var(--pink); margin-bottom: 16px; }
+    .category ul { list-style: none; padding: 0; margin: 0; }
+    .category li { font-size: 15px; padding: 6px 0; border-bottom: 1px solid rgba(3,2,2,0.06); }
+    .category li:last-child { border-bottom: none; }
+    .category p.sub-note { font-size: 13px; color: rgba(3,2,2,0.55); margin-bottom: 12px; }
+
+    .note { font-size: 14px; color: rgba(3,2,2,0.65); max-width: 620px; margin-top: 32px; }
+
+    .site-footer { background: var(--pink); padding: 48px; margin-top: 60px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; }
+    .footer-logo { display: flex; align-items: center; gap: 10px; }
+    .footer-logo img { width: 40px; height: 40px; border-radius: 50%; }
+    .footer-logo span { font-family: var(--font-heading); font-size: 15px; font-weight: 700; color: var(--black); }
+    .footer-nav { display: flex; flex-direction: column; gap: 10px; text-align: center; }
+    .footer-nav div { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+    .footer-nav a { font-size: 14px; color: rgba(3,2,2,0.65); text-decoration: none; font-family: var(--font-body); }
+    .footer-copy { font-size: 13px; color: rgba(3,2,2,0.5); }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="site-logo">
+        <img src="images/logo.jpg" alt="What's For Tea">
+      </a>
+      <nav>
+        <ul class="site-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="real-recipes.html">Real Recipes</a></li>
+          <li><a href="all-recipes.html">All Recipes</a></li>
+          <li><a href="weekly-plan.html">Weekly Plan</a></li>
+        </ul>
+      </nav>
+      <a href="weekly-plan.html" class="btn-cta">Get Weekly Plans →</a>
+    </div>
+  </header>
+
+    <div class="shopping-container">
+    <h1>Week 7 Shopping List</h1>
+    <p>This shopping list has been planned so ingredients work across multiple meals and help reduce waste. All quantities are based on a family of 2 adults and 2 children. Feel free to adjust everything to suit your family — nothing is set in stone.</p>
+
+    <div class="category">
+      <h2>Fresh</h2>
+      <ul>
+        <li>Potatoes, 3kg bag (covers gratin, pork bowls, tenders and korma chips)</li>
+        <li>5 onions (plus 1 red onion for the korma)</li>
+        <li>1 small leek (optional swap for onion on the gratin)</li>
+        <li>4 peppers</li>
+        <li>1 little gem lettuce</li>
+        <li>2 tomatoes</li>
+        <li>Spinach, 1 bag / handful</li>
+        <li>1 garlic clove (fresh, for the gratin)</li>
+      </ul>
+    </div>
+    <div class="category">
+      <h2>Meat &amp; Fish</h2>
+      <ul>
+        <li>2 boxes frozen fish fingers</li>
+        <li>Chicken thigh fillets, 1.6kg total (orzo 500g, tenders 500g, korma 600g)</li>
+        <li>500g beef mince</li>
+        <li>400g pork sausage meat</li>
+        <li>400g pork steaks</li>
+      </ul>
+    </div>
+    <div class="category">
+      <h2>Fridge / Dairy</h2>
+      <ul>
+        <li>Double cream, 300ml</li>
+        <li>Whole milk, 150ml (or a small bottle)</li>
+        <li>Crème fraîche, 300ml pot (covers orzo, pork bowls and korma)</li>
+        <li>Cheddar, 350–400g</li>
+        <li>Butter, 1 tbsp (or use from the pack)</li>
+        <li>2 eggs</li>
+      </ul>
+    </div>
+    <div class="category">
+      <h2>Bakery</h2>
+      <ul>
+        <li>Soft flour tortillas, 6–8</li>
+      </ul>
+    </div>
+    <div class="category">
+      <h2>Basics / Packets</h2>
+      <p class="sub-note">Freeze leftover passata in an ice-cube tray if you do not use the whole carton.</p>
+      <ul>
+        <li>Orzo, 300g</li>
+        <li>Pasta, 350g</li>
+        <li>Passata, 500g carton</li>
+        <li>Tomato purée</li>
+        <li>Chicken stock (400ml made-up, or stock cubes)</li>
+        <li>Plain flour, 50g</li>
+        <li>Dried breadcrumbs, 100g</li>
+      </ul>
+    </div>
+    <div class="category">
+      <h2>Store Cupboard</h2>
+      <p class="sub-note">Only buy what you have run out of — most families already have these.</p>
+      <ul>
+        <li>Cooking oil + oil spray</li>
+        <li>Salt &amp; pepper</li>
+        <li>Garlic granules</li>
+        <li>Paprika + smoked paprika</li>
+        <li>Ground cumin</li>
+        <li>Dried oregano</li>
+        <li>Korma paste</li>
+        <li>Ketchup</li>
+        <li>Mayonnaise</li>
+      </ul>
+    </div>
+
+    <p class="note"><strong>Shopping list optimised:</strong> Potatoes, chicken thighs, cheddar, crème fraîche, peppers, onions and garlic granules work across multiple teas to cut waste.</p>
+  </div>
+
+<footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <img src="images/logo.jpg" alt="What's For Tea">
+        <span>What's For Tea</span>
+      </div>
+      <div class="footer-nav">
+        <div>
+          <a href="index.html">Home</a>
+          <a href="real-recipes.html">Real Recipes</a>
+          <a href="all-recipes.html">All Recipes</a>
+          <a href="weekly-plan.html">Weekly Plan</a>
+        </div>
+        <div>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+        </div>
+      </div>
+      <p class="footer-copy">&copy; 2026 What's For Tea</p>
+    </div>
+  </footer>
+
+</body>
+</html>
